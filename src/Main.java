@@ -10,15 +10,10 @@ public class Main extends Application {
     WelcomeWindow welcomeWindow = new WelcomeWindow();
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage stage) throws Exception{
 
-//        welcomeWindow.start();
+       welcomeWindow.start();
 
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/WelcomeWindow.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.setResizable(false);
-        primaryStage.show();
     }
 
 

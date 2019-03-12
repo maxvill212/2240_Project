@@ -15,15 +15,14 @@ public class WelcomeWindow {
 
 
     public void start() throws Exception{
-        BorderPane window = FXMLLoader.load(getClass().getResource("../FXML/WelcomeWindow"));
 
-        Stage stage = new Stage();
+       Stage primaryStage = new Stage();
 
-        stage.setTitle("Welcome");
-        stage.setScene(new Scene(window));
-        stage.setResizable(false);
-
-        stage.show();
+       Parent root = FXMLLoader.load(getClass().getResource("/FXML/WelcomeWindow.fxml"));
+       primaryStage.setTitle("Welcome");
+       primaryStage.setScene(new Scene(root));
+       primaryStage.setResizable(false);
+       primaryStage.show();
     }
 
 
