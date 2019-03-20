@@ -32,6 +32,7 @@ public class WelcomeWindow {
 
 
     String user, password, checkPass;
+    boolean username;
 
     Database database = new Database();
 
@@ -51,19 +52,18 @@ public class WelcomeWindow {
 //        user = txtUsername.getText();
 //        password = txtPass.getText();
 
-        try{
             if(!user.isEmpty() && !password.isEmpty()){
-//                lblError.setVisible(false);
                 database.connect();
-/***************CHANGE COLOR FROM GREEN/BLACK tO RED******************/
-                lblError.setText("Connection Successful");
+                username = database.checkUsername(user);
+                if(!username){
+                    lblError.setText("Username isn't recognized");
+                    lblError.setVisible(true);
+                }
             }else{
-                throw new NoSuchMethodException();
+                lblError.setText("Please fill all fields");
+                lblError.setVisible(true);
             }
-        }catch (NoSuchMethodException ex){
-            lblError.setVisible(true);
-            lblError.setText("Enter all fields");
-        }
+
 
 //        Hash validate = new Hash();
 
@@ -77,8 +77,8 @@ public class WelcomeWindow {
 
 //        (password == checkPass) &&
         if (!user.isEmpty()) {
-            database.connect();
-            database.createAcc(user, password);
+//            database.connect();
+            database.createAcc(user, password, lblError);
         } else {
             lblError2.setText("Passwords don't match");
         }

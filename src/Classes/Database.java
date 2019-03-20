@@ -1,6 +1,7 @@
 package Classes;
 
 import Controller.WelcomeWindow;
+import javafx.scene.control.Label;
 
 import java.sql.*;
 import java.sql.Connection;
@@ -13,6 +14,7 @@ public class Database {
 //    private Statement stm = null;
     String url = "jdbc:sqlite:src/Database/SQLite_database.db";
 
+
     public Connection connect(){
 
         try {
@@ -21,11 +23,30 @@ public class Database {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+
         }
         return conn;
     }
 
-    public void createAcc (String user, String pass){
+    public boolean checkUsername (String user){
+        String check = "SELECT UserID FROM Users WHERE UserID = ?";
+
+        try(Connection conn = this.connect()){
+            PreparedStatement pstmt = conn.prepareStatement(check);
+            pstmt.setString(1, user);
+            ResultSet result = pstmt.executeQuery();
+
+            if(result.wasNull()){
+                return false;
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return true;
+    }
+
+
+    public void createAcc (String user, String pass, Label lblError2){
         String insert = "INSERT INTO Users (UserID, Password) VALUES(?,?)";
 
         try (Connection conn = this.connect()){
@@ -35,6 +56,7 @@ public class Database {
             pstmt.executeUpdate();
         }catch (SQLException e){
             System.out.println(e.getMessage());
+            lblError2.setText("Didn't pass createAcc");
         }
 
     }
