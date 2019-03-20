@@ -12,9 +12,13 @@ public class Database {
 
     public void connect(String user, String pass){
         try{
-            String url = "jdbc:sqlite:src/Database/SQLite_database.db";
-            conn = DriverManager.getConnection(url);
-            System.out.println("Connection to database successful");
+            if(!user.isEmpty() && !pass.isEmpty()) {
+                String url = "jdbc:sqlite:src/Database/SQLite_database.db";
+                conn = DriverManager.getConnection(url);
+                System.out.println("Connection to database successful");
+            }else{
+
+            }
         } catch (SQLException e){
             System.out.println(e.getMessage());
         } finally {

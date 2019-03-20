@@ -23,12 +23,13 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnStart" layoutX="207.0" layoutY="189.0" mnemonicParsing="false" onAction="#login" text="Login" />
+            <Button fx:id="btnLogin" layoutX="207.0" layoutY="189.0" mnemonicParsing="false" onAction="#login" text="Login" />
             <TextField fx:id="txtPass" layoutX="207.0" layoutY="123.0" />
             <TextField fx:id="txtUsername" layoutX="207.0" layoutY="53.0" />
             <Label fx:id="lblUsername" layoutX="207.0" layoutY="32.0" text="Username" />
             <Label fx:id="lblPass" layoutX="207.0" layoutY="102.0" text="Password" />
-            <Button layoutX="323.0" layoutY="189.0" mnemonicParsing="false" text="Sign up" />
+            <Button fx:id="btnSignUp" layoutX="323.0" layoutY="189.0" mnemonicParsing="false" text="Sign up" />
+            <Label fx:id="lblError" layoutX="228.0" layoutY="234.0" prefHeight="21.0" prefWidth="145.0" text="Fill both credentials" textAlignment="CENTER" textFill="#f20909" visible="false" />
          </children>
       </AnchorPane>
    </center>

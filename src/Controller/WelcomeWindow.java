@@ -2,12 +2,14 @@ package Controller;
 
 import Classes.Database;
 import Classes.ValidateLogin;
+import java.util.EmptyStackException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -21,6 +23,8 @@ public class WelcomeWindow {
     private TextField txtUsername;
     @FXML
     private TextField txtPass;
+    @FXML
+    private Label lblError;
 
     String user, password;
 
@@ -42,7 +46,17 @@ public class WelcomeWindow {
         user = txtUsername.getText();
         password = txtPass.getText();
 
-        database.connect(user, password);
+        try{
+            if(!user.isEmpty() && !password.isEmpty()){
+                lblError.setVisible(false);
+                database.connect(user, password);
+            }else{
+                throw new NoSuchMethodException();
+            }
+        }catch (NoSuchMethodException ex){
+            lblError.setVisible(true);
+        }
+
 
 
 //        ValidateLogin validate = new ValidateLogin();
