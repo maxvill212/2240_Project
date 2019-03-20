@@ -1,8 +1,6 @@
 package Controller;
 
 import Classes.Database;
-import Classes.ValidateLogin;
-import java.util.EmptyStackException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.util.Hashtable;
 
 public class WelcomeWindow {
 
@@ -25,8 +21,17 @@ public class WelcomeWindow {
     private TextField txtPass;
     @FXML
     private Label lblError;
+    @FXML
+    private Label lblError2;
+    @FXML
+    private TextField txtUser2;
+    @FXML
+    private TextField txtCreatePass;
+    @FXML
+    private TextField txtCreatePass2;
 
-    String user, password;
+
+    String user, password, checkPass;
 
     Database database = new Database();
 
@@ -43,26 +48,55 @@ public class WelcomeWindow {
     }
 
     public void login(ActionEvent e) throws Exception{
-        user = txtUsername.getText();
-        password = txtPass.getText();
+//        user = txtUsername.getText();
+//        password = txtPass.getText();
 
         try{
             if(!user.isEmpty() && !password.isEmpty()){
-                lblError.setVisible(false);
-                database.connect(user, password);
+//                lblError.setVisible(false);
+                database.connect();
+/***************CHANGE COLOR FROM GREEN/BLACK tO RED******************/
+                lblError.setText("Connection Successful");
             }else{
                 throw new NoSuchMethodException();
             }
         }catch (NoSuchMethodException ex){
             lblError.setVisible(true);
+            lblError.setText("Enter all fields");
         }
 
-
-
-//        ValidateLogin validate = new ValidateLogin();
+//        Hash validate = new Hash();
 
 //        Hashtable<String, String> userPass = new Hashtable<>();
     }
+
+    public void CreateAccount(ActionEvent e) throws Exception {
+        user = txtUser2.getText();
+        password = txtCreatePass.getText();
+        checkPass = txtCreatePass2.getText();
+
+//        (password == checkPass) &&
+        if (!user.isEmpty()) {
+            database.connect();
+            database.createAcc(user, password);
+        } else {
+            lblError2.setText("Passwords don't match");
+        }
+    }
+//            try{
+//                if(!user.isEmpty() && !password.isEmpty()){
+////                lblError.setVisible(false);
+//                    database.connect(user, password);
+///***************CHANGE COLOR FROM GREEN/BLACK tO RED******************/
+//                    lblError2.setText("Creation");
+//                }else{
+//                    throw new NoSuchMethodException();
+//                }
+//            }catch (NoSuchMethodException ex){
+//                lblError2.setVisible(true);
+//                lblError2.setText("Enter all of the fields");
+//            }
+
 
 
 }
