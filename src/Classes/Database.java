@@ -23,21 +23,27 @@ public class Database {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-
         }
         return conn;
     }
 
     public boolean checkUsername (String user){
-        String check = "SELECT UserID FROM Users WHERE UserID = ?";
+        String check = "SELECT UserID, Password FROM Users WHERE UserID LIKE ?";
 
         try(Connection conn = this.connect()){
             PreparedStatement pstmt = conn.prepareStatement(check);
             pstmt.setString(1, user);
             ResultSet result = pstmt.executeQuery();
 
-            if(result.wasNull()){
+            if(result.next() == false){
+                System.out.println("No results");
                 return false;
+            }else{
+                do {
+                    String data = result.getString("UserID");
+                    String pass = result.getString("Password");
+                    System.out.println(data + "\t" + pass);
+                }while(result.next());
             }
         }catch (SQLException e){
             System.out.println(e.getMessage());

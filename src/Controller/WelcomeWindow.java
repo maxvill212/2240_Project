@@ -49,8 +49,8 @@ public class WelcomeWindow {
     }
 
     public void login(ActionEvent e) throws Exception{
-//        user = txtUsername.getText();
-//        password = txtPass.getText();
+        user = txtUsername.getText();
+        password = txtPass.getText();
 
             if(!user.isEmpty() && !password.isEmpty()){
                 database.connect();
