@@ -1,6 +1,7 @@
 package Controller;
 
 import Classes.Database;
+//import Controller.Question;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,11 +11,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.util.concurrent.TimeUnit;
+
 
 public class WelcomeWindow {
 
     @FXML
-    private Button btnStart;
+    private Button btnLogin;
     @FXML
     private TextField txtUsername;
     @FXML
@@ -31,8 +34,10 @@ public class WelcomeWindow {
     private TextField txtCreatePass2;
     @FXML
     private TextField txtName;
+    @FXML
+    private
 
-
+    Question question;
     String user, password, checkPass, name;
     boolean username;
 
@@ -53,14 +58,27 @@ public class WelcomeWindow {
     public void login(ActionEvent e) throws Exception{
         user = txtUsername.getText();
         password = txtPass.getText();
-
+        name = txtName.getText();
 
             if(!user.isEmpty() && !password.isEmpty()){
                 database.connect();
                 username = database.checkUsername(user);
-                if(!username){
+                if(!username) {
                     lblError.setText("Username isn't recognized");
                     lblError.setVisible(true);
+                }else{
+                    lblError.setText("Welcome" + name);
+                    lblError.setStyle("-fx-text-fill: green;");
+                    lblError.setVisible(true);
+                    TimeUnit.SECONDS.sleep(3);
+
+                    question.start();
+
+                    Stage primaryStage = (Stage) btnLogin.getScene().getWindow();
+                    primaryStage.close();
+
+
+
                 }
             }else{
                 lblError.setText("Please fill all fields");
