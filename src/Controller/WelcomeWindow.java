@@ -1,28 +1,45 @@
 package Controller;
 
 import Classes.Database;
-import Classes.ValidateLogin;
+//import Controller.Question;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.util.concurrent.TimeUnit;
 
-import java.util.Hashtable;
 
 public class WelcomeWindow {
 
     @FXML
-    private Button btnStart;
+    private Button btnLogin;
     @FXML
     private TextField txtUsername;
     @FXML
     private TextField txtPass;
+    @FXML
+    private Label lblError;
+    @FXML
+    private Label lblError2;
+    @FXML
+    private TextField txtUser2;
+    @FXML
+    private TextField txtCreatePass;
+    @FXML
+    private TextField txtCreatePass2;
+    @FXML
+    private TextField txtName;
+    @FXML
+    private
 
-    String user, password;
+    Question question;
+    String user, password, checkPass, name;
+    boolean username;
 
     Database database = new Database();
 
@@ -41,14 +58,51 @@ public class WelcomeWindow {
     public void login(ActionEvent e) throws Exception{
         user = txtUsername.getText();
         password = txtPass.getText();
+        name = txtName.getText();
 
-        database.connect(user, password);
+            if(!user.isEmpty() && !password.isEmpty()){
+                database.connect();
+                username = database.checkUsername(user);
+                if(!username) {
+                    lblError.setText("Username isn't recognized");
+                    lblError.setVisible(true);
+                }else{
+                    lblError.setText("Welcome" + name);
+                    lblError.setStyle("-fx-text-fill: green;");
+                    lblError.setVisible(true);
+                    TimeUnit.SECONDS.sleep(3);
+
+                    question.start();
+
+                    Stage primaryStage = (Stage) btnLogin.getScene().getWindow();
+                    primaryStage.close();
 
 
-//        ValidateLogin validate = new ValidateLogin();
+
+                }
+            }else{
+                lblError.setText("Please fill all fields");
+                lblError.setVisible(true);
+            }
+
+
+//        Hash validate = new Hash();
 
 //        Hashtable<String, String> userPass = new Hashtable<>();
     }
 
+    public void CreateAccount(ActionEvent e) throws Exception {
+        user = txtUser2.getText();
+        name = txtName.getText();
+        password = txtCreatePass.getText();
+        checkPass = txtCreatePass2.getText();
 
+
+        if (password.equals(checkPass) && !user.isEmpty()) {
+            database.connect();
+            database.createAcc(user, name, password, lblError);
+        } else {
+            lblError2.setText("Passwords don't match");
+        }
+    }
 }

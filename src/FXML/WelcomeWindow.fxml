@@ -2,13 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="welcomeWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.WelcomeWindow">
+<BorderPane fx:id="welcomeWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.WelcomeWindow">
    <top>
       <AnchorPane prefHeight="66.0" prefWidth="600.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
          <children>
@@ -21,15 +23,41 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="btnStart" layoutX="207.0" layoutY="189.0" mnemonicParsing="false" onAction="#login" text="Login" />
-            <TextField fx:id="txtPass" layoutX="207.0" layoutY="123.0" />
-            <TextField fx:id="txtUsername" layoutX="207.0" layoutY="53.0" />
-            <Label fx:id="lblUsername" layoutX="207.0" layoutY="32.0" text="Username" />
-            <Label fx:id="lblPass" layoutX="207.0" layoutY="102.0" text="Password" />
-            <Button layoutX="323.0" layoutY="189.0" mnemonicParsing="false" text="Sign up" />
-         </children>
-      </AnchorPane>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Login">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="txtUsername" layoutX="207.0" layoutY="122.0" />
+                        <TextField fx:id="txtPass" layoutX="207.0" layoutY="204.0" />
+                        <Button fx:id="btnLogin" layoutX="272.0" layoutY="263.0" mnemonicParsing="false" onAction="#login" text="Login" />
+                        <Label layoutX="207.0" layoutY="101.0" text="Username" />
+                        <Label layoutX="207.0" layoutY="183.0" text="Passord" />
+                        <Label fx:id="lblError" layoutX="196.0" layoutY="306.0" text="Username or Password Incorect" textFill="RED" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Create Account">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="207.0" layoutY="33.0" text="Username" />
+                        <TextField fx:id="txtUser2" layoutX="207.0" layoutY="54.0" />
+                        <TextField fx:id="txtName" layoutX="207.0" layoutY="117.0" />
+                        <TextField fx:id="txtCreatePass" layoutX="207.0" layoutY="183.0" />
+                        <TextField fx:id="txtCreatePass2" layoutX="207.0" layoutY="250.0" />
+                        <Label layoutX="207.0" layoutY="162.0" text="Password" />
+                        <Label layoutX="207.0" layoutY="229.0" text="Retype Password" />
+                        <Label fx:id="lblError2" layoutX="253.0" layoutY="341.0" text="Error Message" textFill="RED" />
+                        <Button fx:id="CreateAccount" layoutX="240.0" layoutY="293.0" mnemonicParsing="false" onAction="#CreateAccount" text="Create Account" />
+                        <Label fx:id="lblName" layoutX="207.0" layoutY="96.0" text="Name" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </center>
 </BorderPane>
