@@ -29,9 +29,11 @@ public class WelcomeWindow {
     private TextField txtCreatePass;
     @FXML
     private TextField txtCreatePass2;
+    @FXML
+    private TextField txtName;
 
 
-    String user, password, checkPass;
+    String user, password, checkPass, name;
     boolean username;
 
     Database database = new Database();
@@ -51,6 +53,7 @@ public class WelcomeWindow {
     public void login(ActionEvent e) throws Exception{
         user = txtUsername.getText();
         password = txtPass.getText();
+
 
             if(!user.isEmpty() && !password.isEmpty()){
                 database.connect();
@@ -72,31 +75,16 @@ public class WelcomeWindow {
 
     public void CreateAccount(ActionEvent e) throws Exception {
         user = txtUser2.getText();
+        name = txtName.getText();
         password = txtCreatePass.getText();
         checkPass = txtCreatePass2.getText();
 
-//        (password == checkPass) &&
-        if (!user.isEmpty()) {
-//            database.connect();
-            database.createAcc(user, password, lblError);
+
+        if (password.equals(checkPass) && !user.isEmpty()) {
+            database.connect();
+            database.createAcc(user, name, password, lblError);
         } else {
             lblError2.setText("Passwords don't match");
         }
     }
-//            try{
-//                if(!user.isEmpty() && !password.isEmpty()){
-////                lblError.setVisible(false);
-//                    database.connect(user, password);
-///***************CHANGE COLOR FROM GREEN/BLACK tO RED******************/
-//                    lblError2.setText("Creation");
-//                }else{
-//                    throw new NoSuchMethodException();
-//                }
-//            }catch (NoSuchMethodException ex){
-//                lblError2.setVisible(true);
-//                lblError2.setText("Enter all of the fields");
-//            }
-
-
-
 }
