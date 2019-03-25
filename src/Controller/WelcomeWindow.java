@@ -58,7 +58,9 @@ public class WelcomeWindow {
     public void login(ActionEvent e) throws Exception{
         user = txtUsername.getText();
         password = txtPass.getText();
-        name = txtName.getText();
+
+//        PULL FROM DATABASE
+//        name = txtName.getText();
 
             if(!user.isEmpty() && !password.isEmpty()){
                 database.connect();
@@ -67,15 +69,17 @@ public class WelcomeWindow {
                     lblError.setText("Username isn't recognized");
                     lblError.setVisible(true);
                 }else{
-                    lblError.setText("Welcome" + name);
+                    lblError.setText("Welcome");
                     lblError.setStyle("-fx-text-fill: green;");
                     lblError.setVisible(true);
-                    TimeUnit.SECONDS.sleep(3);
-
-                    question.start();
+//                    TimeUnit.SECONDS.sleep(1);
 
                     Stage primaryStage = (Stage) btnLogin.getScene().getWindow();
                     primaryStage.close();
+
+                    question.start();
+
+
 
 
 

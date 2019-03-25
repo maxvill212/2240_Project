@@ -22,9 +22,25 @@ public class Question {
     @FXML
     private Button btnSubmit;
 
+//    private static BorderPane layout;
+//    private static Stage stage;
+//    private static Scene scene;
 
-//    public void start() {
-//
+
+    public void start() throws Exception{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("FXML/Question.fxml"));
+        loader.setController(this);
+        BorderPane scene = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Question");
+        stage.setScene(new Scene(scene));
+        stage.show();
+
+
+
+    }
+
 //       Parent root;
 //        try {
 //            root = FXMLLoader.load(getClass().getClassLoader().getResource("FXML/Question.fxml"));
@@ -39,16 +55,16 @@ public class Question {
 //    }
 
 
-    public void start() throws Exception{
-
-        Stage question = new Stage();
-
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/Question.fxml"));
-        question.setTitle("Welcome");
-        question.setScene(new Scene(root));
-        question.setResizable(false);
-        question.show();
-    }
+//    public void start() throws Exception{
+//
+//        Stage question = new Stage();
+//
+//        Parent root = FXMLLoader.load(getClass().getResource("/FXML/Question.fxml"));
+//        question.setTitle("Welcome");
+//        question.setScene(new Scene(root));
+//        question.setResizable(false);
+//        question.show();
+//    }
 
 
 
