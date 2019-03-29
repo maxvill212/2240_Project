@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.DriverManager;
 
-public class Database {
+public class  Database {
 
     private Connection conn = null;
 //    private Statement stm = null;

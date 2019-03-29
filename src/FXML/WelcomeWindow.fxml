@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
@@ -14,9 +15,9 @@
    <top>
       <AnchorPane prefHeight="66.0" prefWidth="600.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculate your Carbon Footprint" textAlignment="CENTER" wrappingWidth="600.000007532537">
+            <Text fill="#c7ff4f" layoutX="8.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculate your Carbon Footprint" textAlignment="CENTER" wrappingWidth="583.000007532537">
                <font>
-                  <Font size="41.0" />
+                  <Font name="Century Gothic Bold" size="35.0" />
                </font>
             </Text>
          </children>
@@ -29,13 +30,28 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="txtUsername" layoutX="210.0" layoutY="74.0" />
+                        <TextField fx:id="txtUsername" layoutX="210.0" layoutY="91.0" />
                         <TextField fx:id="txtPass" layoutX="210.0" layoutY="156.0" />
-                        <Button fx:id="btnLogin" layoutX="275.0" layoutY="215.0" mnemonicParsing="false" onAction="#login" text="Login" />
-                        <Label layoutX="210.0" layoutY="57.0" text="Username" />
-                        <Label layoutX="210.0" layoutY="135.0" text="Passord" />
-                        <Label fx:id="lblError" layoutX="199.0" layoutY="258.0" text="Username or Password Incorect" textFill="RED" />
+                        <Button fx:id="btnLogin" graphicTextGap="9.0" layoutX="261.0" layoutY="214.0" mnemonicParsing="false" onAction="#login" styleClass="4" text="Login" textFill="#cffc49" wrapText="true">
+                           <font>
+                              <Font name="Century Gothic" size="12.0" />
+                           </font></Button>
+                        <Label layoutX="210.0" layoutY="57.0" text="Username" textFill="#b9fc33">
+                           <font>
+                              <Font name="Century Gothic" size="20.0" />
+                           </font></Label>
+                        <Label layoutX="210.0" layoutY="122.0" text="Passord" textFill="#a5f52d">
+                           <font>
+                              <Font name="Century Gothic" size="22.0" />
+                           </font></Label>
+                        <Label fx:id="lblError" layoutX="170.0" layoutY="259.0" text="Username or Password Incorect" textFill="RED">
+                           <font>
+                              <Font name="Century Gothic" size="17.0" />
+                           </font></Label>
                      </children>
+                     <effect>
+                        <ColorAdjust />
+                     </effect>
                   </AnchorPane>
             </content>
           </Tab>
@@ -43,16 +59,31 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="207.0" layoutY="33.0" text="Username" />
-                        <TextField fx:id="txtUser2" layoutX="207.0" layoutY="54.0" />
-                        <TextField fx:id="txtName" layoutX="207.0" layoutY="117.0" />
-                        <TextField fx:id="txtCreatePass" layoutX="207.0" layoutY="183.0" />
-                        <TextField fx:id="txtCreatePass2" layoutX="207.0" layoutY="250.0" />
-                        <Label layoutX="207.0" layoutY="162.0" text="Password" />
-                        <Label layoutX="207.0" layoutY="229.0" text="Retype Password" />
-                        <Label fx:id="lblError2" layoutX="253.0" layoutY="341.0" text="Error Message" textFill="RED" />
-                        <Button fx:id="CreateAccount" layoutX="240.0" layoutY="293.0" mnemonicParsing="false" onAction="#CreateAccount" text="Create Account" />
-                        <Label fx:id="lblName" layoutX="207.0" layoutY="96.0" text="Name" />
+                        <Label layoutX="207.0" layoutY="33.0" text="Username" textFill="#c2f84d">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font></Label>
+                        <TextField fx:id="txtUser2" layoutX="207.0" layoutY="58.0" />
+                        <TextField fx:id="txtName" layoutX="207.0" layoutY="120.0" />
+                        <TextField fx:id="txtCreatePass" layoutX="207.0" layoutY="188.0" />
+                        <TextField fx:id="txtCreatePass2" layoutX="207.0" layoutY="253.0" />
+                        <Label layoutX="207.0" layoutY="162.0" text="Password" textFill="#c2f84d">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font></Label>
+                        <Label layoutX="207.0" layoutY="229.0" text="Retype Password" textFill="#c2f84d">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font></Label>
+                        <Label fx:id="lblError2" layoutX="234.0" layoutY="345.0" text="Error Message" textFill="#c2f84d">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font></Label>
+                        <Button fx:id="CreateAccount" layoutX="228.0" layoutY="296.0" mnemonicParsing="false" onAction="#CreateAccount" text="Create Account" textFill="#befc38" />
+                        <Label fx:id="lblName" layoutX="207.0" layoutY="96.0" text="Name" textFill="#c2f84d">
+                           <font>
+                              <Font name="Century Gothic" size="14.0" />
+                           </font></Label>
                      </children>
                   </AnchorPane>
             </content>
