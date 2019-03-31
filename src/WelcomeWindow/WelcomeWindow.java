@@ -50,8 +50,7 @@ public class WelcomeWindow implements Initializable {
     String user, password, checkPass, name;
     boolean username;
     int i = 0;
-    String[] results;
-
+    String[] results = new String[40];
     Database database = new Database();
 
 
@@ -112,7 +111,7 @@ public class WelcomeWindow implements Initializable {
 
                 try {
                     FXMLLoader fxmlLoader = new FXMLLoader(Question1.class.getResource("Question1.fxml"));
-                    Parent questionRoot = fxmlLoader.load();
+                    Parent question1Root = fxmlLoader.load();
 
 //                    Next 2 lines sends the username to the first question1 in the result array
                     results[i] = user;
@@ -121,7 +120,7 @@ public class WelcomeWindow implements Initializable {
                     question1.sendToNext(results, i);
 
                     Stage questionStage = new Stage();
-                    questionStage.setScene(new Scene(questionRoot));
+                    questionStage.setScene(new Scene(question1Root));
                     questionStage.show();
 
 

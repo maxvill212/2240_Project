@@ -36,7 +36,7 @@ public class Question2 implements Initializable {
         results[i] = ans;
         i++;
 
-        for (int j = 0; i<results.length; j++){
+        for (int j = 0; j<3; j++){
             System.out.println(results[j]);
         }
     }
