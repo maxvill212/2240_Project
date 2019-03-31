@@ -1,3 +1,4 @@
+import Classes.UserSession;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +9,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage welcomeStage) throws Exception{
+
         Parent welcomeRoot = FXMLLoader.load(getClass().getResource("WelcomeWindow/WelcomeWindow.fxml"));
         welcomeStage.setTitle("Welcome");
         welcomeStage.setScene(new Scene(welcomeRoot));
