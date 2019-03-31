@@ -1,6 +1,6 @@
 package Classes;
 
-import Controller.WelcomeWindow;
+import WelcomeWindow.WelcomeWindow;
 import javafx.scene.control.Label;
 
 import java.sql.*;
@@ -19,7 +19,7 @@ public class Database {
 
         try {
             conn = DriverManager.getConnection(url);
-            System.out.println("Connection");
+            System.out.println("Connection ot DB");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -28,11 +28,8 @@ public class Database {
     }
 
     public boolean checkUsername (String user){
+
         String check = "SELECT username, password FROM Users WHERE username LIKE ?";
-
-//        https://stackoverflow.com/questions/27582757/catch-duplicate-entry-exception
-//        SQLIntegrityConstraintViolationException
-
 
         try(Connection conn = this.connect()){
             PreparedStatement pstmt = conn.prepareStatement(check);
