@@ -14,6 +14,6 @@
          </font>
       </Label>
       <TextField fx:id="txtField1" layoutX="194.0" layoutY="104.0" prefHeight="31.0" prefWidth="102.0" promptText="Ex. 1, 2, 3..." />
-      <Button fx:id="btnSubmit1" layoutX="211.0" layoutY="163.0" mnemonicParsing="false" onAction="#submit1" text="Submit" />
+      <Button fx:id="btnSubmit" layoutX="211.0" layoutY="163.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
    </children>
 </AnchorPane>

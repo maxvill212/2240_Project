@@ -29,12 +29,12 @@ public class Question1 implements Initializable {
     private TextField txtField1;
 
     @FXML
-    private Button btnSubmit1;
+    private Button btnSubmit;
 
 
 
     @FXML
-    void submit1(ActionEvent event) {
+    void submit(ActionEvent event) {
 
 
         try {
@@ -52,6 +52,10 @@ public class Question1 implements Initializable {
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
             questionStage.show();
+
+//            Closing the stage
+            Stage currStage = (Stage) btnSubmit.getScene().getWindow();
+            currStage.close();
 
 
         }catch (Exception e) {

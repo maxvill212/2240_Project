@@ -6,6 +6,7 @@ import Questions.Question1.Question1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -122,6 +123,10 @@ public class WelcomeWindow implements Initializable {
                     Stage questionStage = new Stage();
                     questionStage.setScene(new Scene(question1Root));
                     questionStage.show();
+
+//                    Closing the stage
+                    Stage currStage = (Stage) btnLogin.getScene().getWindow();
+                    currStage.close();
 
 
                 }catch (Exception e) {
