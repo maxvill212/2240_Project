@@ -2,8 +2,7 @@ package WelcomeWindow;
 
 import Classes.Database;
 //import Classes.UserSession;
-import Question.Question;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
+import Questions.Question1.Question1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,45 +23,36 @@ public class WelcomeWindow implements Initializable {
 
     @FXML
     private BorderPane welcomeWindow;
-
     @FXML
     private TextField txtUsername;
-
     @FXML
     private TextField txtPass;
-
     @FXML
     private Button btnLogin;
-
     @FXML
     private Label lblError;
-
     @FXML
     private TextField txtUser2;
-
     @FXML
     private TextField txtName;
-
     @FXML
     private TextField txtCreatePass;
-
     @FXML
     private TextField txtCreatePass2;
-
     @FXML
     private Label lblError2;
-
     @FXML
     private Button CreateAccount;
-
     @FXML
     private Label lblName;
 
+
     String user, password, checkPass, name;
     boolean username;
+    int i = 0;
+    String[] results;
 
     Database database = new Database();
-//    Question question = new Question();
 
 
 
@@ -81,15 +71,15 @@ public class WelcomeWindow implements Initializable {
 
             try {
 
-                FXMLLoader fxmlLoader = new FXMLLoader(Question.class.getResource("Question.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(Question1.class.getResource("Questions.fxml"));
                 Parent questionRoot = fxmlLoader.load();
                 Stage questionStage = new Stage();
                 questionStage.setScene(new Scene(questionRoot));
                 questionStage.show();
-//                UserSession.getInstance(user);
+
 
             }catch (Exception e) {
-                System.out.println("This Sucks BAAAAAALZZZZZ");
+                System.out.println("Didn't want to open Questions");
             }
 
         } else {
@@ -121,16 +111,19 @@ public class WelcomeWindow implements Initializable {
                 TimeUnit.SECONDS.sleep(1);
 
                 try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(Question.class.getResource("Question.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(Question1.class.getResource("Question1.fxml"));
                     Parent questionRoot = fxmlLoader.load();
-//                    Next 2 lines sends the username to the first question
-                    Question question = fxmlLoader.getController();
-                    question.setUser(user);
+
+//                    Next 2 lines sends the username to the first question1 in the result array
+                    results[i] = user;
+                    i++;
+                    Question1 question1 = fxmlLoader.getController();
+                    question1.sendToNext(results, i);
+
                     Stage questionStage = new Stage();
                     questionStage.setScene(new Scene(questionRoot));
                     questionStage.show();
 
-//                    UserSession.getInstance(user);
 
                 }catch (Exception e) {
                     System.out.println(e.getMessage());

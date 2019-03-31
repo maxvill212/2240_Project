@@ -67,4 +67,17 @@ public class Database {
             lblError2.setText("Didn't pass createAcc");
         }
     }
+
+    public void question1(String user, String ans){
+        String insert = "INSERT INTO Answers (username, question1) VALUES (?,?)";
+
+        try (Connection conn = this.connect()){
+            PreparedStatement pstmt = conn.prepareStatement(insert);
+            pstmt.setString(1, user);
+            pstmt.setString(2, ans);
+            pstmt.executeUpdate();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }
