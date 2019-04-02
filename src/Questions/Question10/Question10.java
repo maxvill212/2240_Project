@@ -46,8 +46,6 @@ public class Question10 implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(EndScreen.class.getResource("EndScreen.fxml"));
             Parent endSRoot = fxmlLoader.load();
 
-//            EndScreen endScreen = fxmlLoader.getController();
-
             Stage endStage = new Stage();
             endStage.setScene(new Scene(endSRoot));
             endStage.setTitle("Question 7");

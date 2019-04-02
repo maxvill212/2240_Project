@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -44,9 +45,10 @@ public class Question1 implements Initializable {
 //            Next 2 lines sends the username to the first question in the result array
             results[i] = txtField1.getText();
             i++;
-
             Question2 question2 = fxmlLoader.getController();
             question2.sendToNext(results, i);
+
+
 
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));

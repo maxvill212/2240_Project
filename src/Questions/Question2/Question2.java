@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -44,13 +45,18 @@ public class Question2 implements Initializable {
 //            Next 2 lines sends the username to the first question in the result array
             results[i] = txtField1.getText();
             i++;
-
             Question3 question3 = fxmlLoader.getController();
             question3.sendToNext(results, i);
+
+            ChoiceBox<String> choiceBox = new ChoiceBox<>();
+//            Create Items returns observableList to add items
+            choiceBox.getItems().addAll("Apartment", "Semi Detached", "Town House", "Standalone");
+            choiceBox.setValue("Apartment");
 
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
             questionStage.setTitle("Question 3");
+//            questionStage.getChildren().add(choiceBox);
             questionStage.show();
 
 //            Closing the stage
