@@ -1,11 +1,18 @@
 package Questions.Question10;
 
+import Classes.Database;
+import EndScreen.EndScreen;
+import Questions.Question7.Question7;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +22,7 @@ public class Question10 implements Initializable {
 
     String results[];
     int i;
+    Database database = new Database();
 
     @FXML
     private Label lblQuestion1;
@@ -31,12 +39,25 @@ public class Question10 implements Initializable {
     @FXML
     void submit(ActionEvent event) {
 
-        String ans = txtField1.getText();
-        results[i] = ans;
-        i++;
+        results[i] = txtField1.getText();
+        database.inputData(results);
 
-        for (int j = 0; j<i; j++){
-            System.out.println(results[j]);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(EndScreen.class.getResource("EndScreen.fxml"));
+            Parent endSRoot = fxmlLoader.load();
+
+//            EndScreen endScreen = fxmlLoader.getController();
+
+            Stage endStage = new Stage();
+            endStage.setScene(new Scene(endSRoot));
+            endStage.setTitle("Question 7");
+            endStage.show();
+
+//            Closing the stage
+            Stage currStage = (Stage) btnSubmit.getScene().getWindow();
+            currStage.close();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
     }
 

@@ -7,6 +7,7 @@ import java.sql.*;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.DriverManager;
+import java.util.StringJoiner;
 
 public class Database {
 
@@ -67,17 +68,24 @@ public class Database {
             lblError2.setText("Didn't pass createAcc");
         }
     }
-//
-//    public void question1(String user, String ans){
-//        String insert = "INSERT INTO Answers (username, question1) VALUES (?,?)";
-//
-//        try (Connection conn = this.connect()){
-//            PreparedStatement pstmt = conn.prepareStatement(insert);
-//            pstmt.setString(1, user);
-//            pstmt.setString(2, ans);
-//            pstmt.executeUpdate();
-//        }catch (SQLException e){
-//            System.out.println(e.getMessage());
-//        }
-//    }
+
+
+    public void inputData (String[] data){
+
+
+        String insert = "INSERT INTO Answers (username, question1, question2, question3, question4, question5," +
+                " question6, question7, question8, question9, question10) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+
+        try (Connection conn = this.connect()){
+            PreparedStatement pstmt = conn.prepareStatement(insert);
+            for (int i = 0; i < 11; i++) {
+                pstmt.setString(i+1, data[i]);
+            }
+
+
+            pstmt.executeUpdate();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

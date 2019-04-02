@@ -42,8 +42,7 @@ public class Question2 implements Initializable {
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
-            String ans = txtField1.getText();
-            results[i] = ans;
+            results[i] = txtField1.getText();
             i++;
 
             Question3 question3 = fxmlLoader.getController();
