@@ -1,6 +1,7 @@
-package Questions.Question3;
+package Questions.Question9;
 
-import Questions.Question4.Question4;
+import Questions.Question10.Question10;
+import Questions.Question3.Question3;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Question3 implements Initializable {
+public class Question9 implements Initializable {
 
 
     String results[];
@@ -37,7 +38,7 @@ public class Question3 implements Initializable {
     void submit(ActionEvent event) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Question4.class.getResource("Question4.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Question10.class.getResource("Question10.fxml"));
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
@@ -45,12 +46,12 @@ public class Question3 implements Initializable {
             results[i] = ans;
             i++;
 
-            Question4 question4 = fxmlLoader.getController();
-            question4.sendToNext(results, i);
+            Question10 question10 = fxmlLoader.getController();
+            question10.sendToNext(results, i);
 
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
-            questionStage.setTitle("Question 4");
+            questionStage.setTitle("Question 10");
             questionStage.show();
 
 //            Closing the stage

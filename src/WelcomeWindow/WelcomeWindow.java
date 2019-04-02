@@ -122,6 +122,7 @@ public class WelcomeWindow implements Initializable {
 
                     Stage questionStage = new Stage();
                     questionStage.setScene(new Scene(question1Root));
+                    questionStage.setTitle("Question 1");
                     questionStage.show();
 
 //                    Closing the stage

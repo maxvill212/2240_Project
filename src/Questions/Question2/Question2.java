@@ -51,6 +51,7 @@ public class Question2 implements Initializable {
 
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
+            questionStage.setTitle("Question 3");
             questionStage.show();
 
 //            Closing the stage
