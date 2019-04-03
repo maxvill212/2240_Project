@@ -23,7 +23,7 @@ public class Question1 implements Initializable {
 
     String results[];
     int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7+");
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("Canada");
 
     @FXML
     private Label lblQuestion1;
@@ -32,7 +32,7 @@ public class Question1 implements Initializable {
     @FXML
     private Button btnSubmit;
     @FXML
-    private ChoiceBox cBoxQ1;
+    private ChoiceBox cBox;
 
 
 
@@ -46,7 +46,7 @@ public class Question1 implements Initializable {
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
-            results[i] =  cBoxQ1.getValue().toString();
+            results[i] =  cBox.getValue().toString();
             i++;
             Question2 question2 = fxmlLoader.getController();
             question2.sendToNext(results, i);
@@ -80,7 +80,7 @@ public class Question1 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cBoxQ1.setItems(choiceBoxList);
-        cBoxQ1.setValue("1");
+        cBox.setItems(choiceBoxList);
+        cBox.setValue("Canada");
     }
 }

@@ -1,7 +1,8 @@
 package Questions.Question9;
 
-import Questions.Question10.Question10;
-import Questions.Question3.Question3;
+import Questions.Questions28.Question28;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -21,6 +23,7 @@ public class Question9 implements Initializable {
 
     String results[];
     int i;
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0", "1-10", "11-30", "31+");
 
     @FXML
     private Label lblQuestion1;
@@ -31,6 +34,9 @@ public class Question9 implements Initializable {
     @FXML
     private Button btnSubmit;
 
+    @FXML
+    private ChoiceBox cBox;
+
 
 
 
@@ -38,15 +44,16 @@ public class Question9 implements Initializable {
     void submit(ActionEvent event) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Question10.class.getResource("Question10.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Question28.class.getResource("Question28.fxml"));
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
-            results[i] = txtField1.getText();
+
+            results[i] =  cBox.getValue().toString();
             i++;
 
-            Question10 question10 = fxmlLoader.getController();
-            question10.sendToNext(results, i);
+            Question28 question28 = fxmlLoader.getController();
+            question28.sendToNext(results, i);
 
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
@@ -73,5 +80,7 @@ public class Question9 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cBox.setItems(choiceBoxList);
+        cBox.setValue("0");
     }
 }

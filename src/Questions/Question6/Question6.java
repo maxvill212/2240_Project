@@ -2,6 +2,8 @@ package Questions.Question6;
 
 import Questions.Question3.Question3;
 import Questions.Question7.Question7;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -21,15 +24,14 @@ public class Question6 implements Initializable {
 
     String results[];
     int i;
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("Never", "1-2", "3-5", "6-7");
 
-    @FXML
-    private Label lblQuestion1;
-
-    @FXML
-    private TextField txtField1;
 
     @FXML
     private Button btnSubmit;
+
+    @FXML
+    private ChoiceBox cBox;
 
 
 
@@ -42,7 +44,7 @@ public class Question6 implements Initializable {
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
-            results[i] = txtField1.getText();
+            results[i] =  cBox.getValue().toString();
             i++;
 
             Question7 question7 = fxmlLoader.getController();
@@ -73,5 +75,7 @@ public class Question6 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cBox.setItems(choiceBoxList);
+        cBox.setValue("Never");
     }
 }
