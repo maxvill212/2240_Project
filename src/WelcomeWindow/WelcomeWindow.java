@@ -49,7 +49,7 @@ public class WelcomeWindow implements Initializable {
     String user, password, checkPass, name;
     boolean username;
     int i = 0;
-    String[] results = new String[29];
+    String[] results = new String[28];
     Database database = new Database();
     HashAndCheck hashAndCheck = new HashAndCheck();
 

@@ -84,8 +84,7 @@ public class Database {
     public void inputData (String[] data){
 
 
-        String insert = "INSERT INTO Answers (username, question1, question2, question3, question4, question5," +
-                " question6, question7, question8, question9, question10) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        String insert = "INSERT INTO Answers VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try (Connection conn = this.connect()){
             PreparedStatement pstmt = conn.prepareStatement(insert);

@@ -1,6 +1,6 @@
 package Questions.Question25;
 
-import Questions.Questions28.Question28;
+import Questions.Question27.Question27;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -22,8 +19,8 @@ public class Question25 implements Initializable {
 
 
     String results[];
-    int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0", "1-10", "11-30", "31+");
+    int i, checkResultInt = 0;
+    String checkResultArray;
 
     @FXML
     private Label lblQuestion1;
@@ -35,7 +32,23 @@ public class Question25 implements Initializable {
     private Button btnSubmit;
 
     @FXML
-    private ChoiceBox cBox;
+    private CheckBox checkFood;
+
+    @FXML
+    private CheckBox checkPaper;
+
+    @FXML
+    private CheckBox checkGlass;
+
+    @FXML
+    private CheckBox checkCans;
+
+    @FXML
+    private CheckBox checkPlastic;
+
+    @FXML
+    private CheckBox checkElec;
+
 
 
 
@@ -44,15 +57,18 @@ public class Question25 implements Initializable {
     void submit(ActionEvent event) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Question28.class.getResource("Question28.fxml"));
+//            Call the checkbox counter method to see how many are checked
+            checkResultArray = checkBoxes(checkFood, checkPaper, checkGlass, checkCans, checkPlastic, checkElec);
+
+            FXMLLoader fxmlLoader = new FXMLLoader(Question27.class.getResource("Question27.fxml"));
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
 
-            results[i] =  cBox.getValue().toString();
+            results[i] =  checkResultArray;
             i++;
 
-            Question28 question28 = fxmlLoader.getController();
+            Question27 question28 = fxmlLoader.getController();
             question28.sendToNext(results, i);
 
             Stage questionStage = new Stage();
@@ -80,7 +96,27 @@ public class Question25 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cBox.setItems(choiceBoxList);
-        cBox.setValue("0");
+    }
+
+    //    Method to see how many checkboxes are checked
+    private String checkBoxes (CheckBox checkFood, CheckBox checkPaper, CheckBox checkGlass, CheckBox checkCans,
+                               CheckBox checkPlastic, CheckBox checkElec){
+
+        if (checkFood.isSelected())
+            checkResultInt++;
+        if (checkPaper.isSelected())
+            checkResultInt++;
+        if (checkGlass.isSelected())
+            checkResultInt++;
+        if (checkCans.isSelected())
+            checkResultInt++;
+        if (checkPlastic.isSelected())
+            checkResultInt++;
+        if (checkElec.isSelected())
+            checkResultInt++;
+
+//        Convert that result into a String to be put in the array
+        checkResultArray = Integer.toString(checkResultInt);
+        return checkResultArray;
     }
 }

@@ -1,6 +1,6 @@
 package Questions.Question20;
 
-import Questions.Questions28.Question28;
+import Questions.Question27.Question27;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,10 +19,8 @@ public class Question20 implements Initializable {
 
 
     String results[];
-    int i, checkResultCounter;
+    int i, checkResultInt = 0;
     String checkResultArray;
-
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("Energy Lights", "Loft In1-10", "11-30", "31+");
 
     @FXML
     private Label lblQuestion1;
@@ -65,17 +63,17 @@ public class Question20 implements Initializable {
     void submit(ActionEvent event) {
 
         try {
-            if
+//            Call the checkbox counter method to see how many are checked
+            checkResultArray = checkBoxes(checkLights, checkCavity, checkInsulation, checkGlazing, checkBoiler, checkLowFlow, checkSolarPanels, checkWater);
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Question28.class.getResource("Question28.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Question27.class.getResource("Question27.fxml"));
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
-
-            results[i] =  cBox.getValue().toString();
+            results[i] =  checkResultArray;
             i++;
 
-            Question28 question28 = fxmlLoader.getController();
+            Question27 question28 = fxmlLoader.getController();
             question28.sendToNext(results, i);
 
             Stage questionStage = new Stage();
@@ -103,7 +101,34 @@ public class Question20 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cBox.setItems(choiceBoxList);
-        cBox.setValue("Energy Lights");
+    }
+
+
+
+//    Method to see how many checkboxes are checked
+    private String checkBoxes (CheckBox checkLights, CheckBox checkCavity, CheckBox checkInsulation,
+                               CheckBox checkGlazing, CheckBox checkBoiler, CheckBox checkLowFlow,
+                               CheckBox checkSolarPanels, CheckBox checkWater){
+
+        if (checkLights.isSelected())
+            checkResultInt++;
+        if (checkCavity.isSelected())
+            checkResultInt++;
+        if (checkInsulation.isSelected())
+            checkResultInt++;
+        if (checkGlazing.isSelected())
+            checkResultInt++;
+        if (checkBoiler.isSelected())
+            checkResultInt++;
+        if (checkLowFlow.isSelected())
+            checkResultInt++;
+        if (checkSolarPanels.isSelected())
+            checkResultInt++;
+        if (checkWater.isSelected())
+            checkResultInt++;
+
+//        Convert that result into a String to be put in the array
+        checkResultArray = Integer.toString(checkResultInt);
+        return checkResultArray;
     }
 }
