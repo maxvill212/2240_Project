@@ -12,8 +12,8 @@ import java.util.StringJoiner;
 public class Database {
 
     private Connection conn = null;
-//    private Statement stm = null;
     String url = "jdbc:sqlite:src/Database/database.db";
+    Hash hash = new Hash();
 
 
     public Connection connect(){
@@ -40,12 +40,6 @@ public class Database {
             if(result.next() == false){
                 System.out.println("No results");
                 return false;
-            }else{
-//                do {
-//                    String data = result.getString("username");
-//                    String pass = result.getString("password");
-////                    System.out.println(data + "\t" + pass);
-//                }while(result.next());
             }
         }catch (SQLException e){
             System.out.println(e.getMessage());
@@ -62,7 +56,7 @@ public class Database {
             ResultSet result = pstmt.executeQuery();
             String pswd = result.getString("password");
 
-            if (pass.equals(pswd)){
+            if (hash.checkHash(pass, pswd)){
                 return true;
             }
         }catch (SQLException e){

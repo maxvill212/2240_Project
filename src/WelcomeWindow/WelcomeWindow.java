@@ -1,12 +1,11 @@
 package WelcomeWindow;
 
 import Classes.Database;
-//import Classes.UserSession;
+import Classes.Hash;
 import Questions.Question1.Question1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -53,6 +52,8 @@ public class WelcomeWindow implements Initializable {
     int i = 0;
     String[] results = new String[40];
     Database database = new Database();
+    Hash hash = new Hash();
+
 
 
 
@@ -64,26 +65,44 @@ public class WelcomeWindow implements Initializable {
         password = txtCreatePass.getText();
         checkPass = txtCreatePass2.getText();
 
+        if (hash.checkLength(password)) {
+            if (password.equals(checkPass) && !user.isEmpty()) {
 
-        if (password.equals(checkPass) && !user.isEmpty()) {
-            database.connect();
-            database.createAcc(user, name, password, lblError);
+                password = hash.hashPass(password);
+                database.connect();
+                database.createAcc(user, name, password, lblError);
 
-            try {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(Question1.class.getResource("Question1.fxml"));
+                    Parent question1Root = fxmlLoader.load();
 
-                FXMLLoader fxmlLoader = new FXMLLoader(Question1.class.getResource("Questions.fxml"));
-                Parent questionRoot = fxmlLoader.load();
-                Stage questionStage = new Stage();
-                questionStage.setScene(new Scene(questionRoot));
-                questionStage.show();
+//                    Next 2 lines sends the username to the first question1 in the result array
+                    results[i] = user;
+                    i++;
+                    Question1 question1 = fxmlLoader.getController();
+                    question1.sendToNext(results, i);
+
+                    Stage questionStage = new Stage();
+                    questionStage.setScene(new Scene(question1Root));
+                    questionStage.setTitle("Question 1");
+                    questionStage.show();
+
+//                    Closing the stage
+                    Stage currStage = (Stage) btnLogin.getScene().getWindow();
+                    currStage.close();
 
 
-            }catch (Exception e) {
-                System.out.println("Didn't want to open Questions");
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+
+            } else {
+                lblError2.setText("Passwords don't match");
+                lblError2.setVisible(true);
             }
-
-        } else {
-            lblError2.setText("Passwords don't match");
+        }else{
+            lblError2.setText("Password must be at leased 6 characters");
+            lblError2.setVisible(true);
         }
     }
 
@@ -106,10 +125,6 @@ public class WelcomeWindow implements Initializable {
             }else {
 
                 if (database.checkPassword(user, password)) {
-                    lblError.setText("Welcome");
-                    lblError.setStyle("-fx-text-fill: green;");
-                    lblError.setVisible(true);
-                    TimeUnit.SECONDS.sleep(1);
 
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(Question1.class.getResource("Question1.fxml"));
