@@ -23,7 +23,7 @@ public class Question17 implements Initializable {
 
     String results[];
     int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0", "1-10", "11-30", "31+");
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("Yes", "Yes but not 100% Renewable", "No", "Don't Know");
 
     @FXML
     private Label lblQuestion1;
@@ -81,6 +81,6 @@ public class Question17 implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cBox.setItems(choiceBoxList);
-        cBox.setValue("0");
+        cBox.setValue("Yes");
     }
 }

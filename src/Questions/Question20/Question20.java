@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -22,8 +19,10 @@ public class Question20 implements Initializable {
 
 
     String results[];
-    int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0", "1-10", "11-30", "31+");
+    int i, checkResultCounter;
+    String checkResultArray;
+
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("Energy Lights", "Loft In1-10", "11-30", "31+");
 
     @FXML
     private Label lblQuestion1;
@@ -35,7 +34,29 @@ public class Question20 implements Initializable {
     private Button btnSubmit;
 
     @FXML
-    private ChoiceBox cBox;
+    private CheckBox checkLights;
+
+    @FXML
+    private CheckBox checkCavity;
+
+    @FXML
+    private CheckBox checkInsulation;
+
+    @FXML
+    private CheckBox checkGlazing;
+
+    @FXML
+    private CheckBox checkBoiler;
+
+    @FXML
+    private CheckBox checkLowFlow;
+
+    @FXML
+    private CheckBox checkSolarPanels;
+
+    @FXML
+    private CheckBox checkWater;
+
 
 
 
@@ -44,6 +65,8 @@ public class Question20 implements Initializable {
     void submit(ActionEvent event) {
 
         try {
+            if
+
             FXMLLoader fxmlLoader = new FXMLLoader(Question28.class.getResource("Question28.fxml"));
             Parent questionRoot = fxmlLoader.load();
 
@@ -81,6 +104,6 @@ public class Question20 implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cBox.setItems(choiceBoxList);
-        cBox.setValue("0");
+        cBox.setValue("Energy Lights");
     }
 }

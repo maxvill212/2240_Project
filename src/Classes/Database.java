@@ -89,7 +89,7 @@ public class Database {
 
         try (Connection conn = this.connect()){
             PreparedStatement pstmt = conn.prepareStatement(insert);
-            for (int i = 0; i < 11; i++) {
+            for (int i = 0; i < data.length; i++) {
                 pstmt.setString(i+1, data[i]);
             }
 

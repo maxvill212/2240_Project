@@ -23,7 +23,7 @@ public class Question19 implements Initializable {
 
     String results[];
     int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0", "1-10", "11-30", "31+");
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("Bellow 14", "14-17", "18-21", "Over 21");
 
     @FXML
     private Label lblQuestion1;
