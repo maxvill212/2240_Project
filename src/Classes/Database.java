@@ -1,19 +1,16 @@
 package Classes;
 
-import WelcomeWindow.WelcomeWindow;
 import javafx.scene.control.Label;
 
 import java.sql.*;
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.DriverManager;
-import java.util.StringJoiner;
 
 public class Database {
 
     private Connection conn = null;
     String url = "jdbc:sqlite:src/Database/database.db";
-    Hash hash = new Hash();
+    HashAndCheck hashAndCheck = new HashAndCheck();
 
 
     public Connection connect(){
@@ -56,7 +53,7 @@ public class Database {
             ResultSet result = pstmt.executeQuery();
             String pswd = result.getString("password");
 
-            if (hash.checkHash(pass, pswd)){
+            if (hashAndCheck.checkHash(pass, pswd)){
                 return true;
             }
         }catch (SQLException e){

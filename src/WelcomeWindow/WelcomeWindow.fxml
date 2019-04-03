@@ -42,7 +42,7 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
                                 <TextField fx:id="txtUser2" layoutX="207.0" layoutY="54.0" promptText="Username" />
-                                <TextField fx:id="txtName" layoutX="207.0" layoutY="117.0" promptText="Name" />
+                                <TextField fx:id="txtName" layoutX="207.0" layoutY="117.0" promptText="Full Name" />
                                 <TextField fx:id="txtCreatePass" layoutX="207.0" layoutY="183.0" promptText="Password" />
                                 <TextField fx:id="txtCreatePass2" layoutX="207.0" layoutY="250.0" promptText="Retype Password" />
                                 <Label fx:id="lblError2" layoutX="253.0" layoutY="341.0" text="Error Message" textFill="RED" visible="false" />
