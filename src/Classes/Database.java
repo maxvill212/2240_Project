@@ -1,25 +1,23 @@
 package Classes;
 
-import Controller.WelcomeWindow;
 import javafx.scene.control.Label;
 
 import java.sql.*;
 import java.sql.Connection;
-import java.sql.Statement;
 import java.sql.DriverManager;
 
 public class Database {
 
     private Connection conn = null;
-//    private Statement stm = null;
     String url = "jdbc:sqlite:src/Database/database.db";
+    HashAndCheck hashAndCheck = new HashAndCheck();
 
 
     public Connection connect(){
 
         try {
             conn = DriverManager.getConnection(url);
-            System.out.println("Connection");
+//            System.out.println("Connection to DB");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -28,11 +26,8 @@ public class Database {
     }
 
     public boolean checkUsername (String user){
+
         String check = "SELECT username, password FROM Users WHERE username LIKE ?";
-
-//        https://stackoverflow.com/questions/27582757/catch-duplicate-entry-exception
-//        SQLIntegrityConstraintViolationException
-
 
         try(Connection conn = this.connect()){
             PreparedStatement pstmt = conn.prepareStatement(check);
@@ -42,17 +37,31 @@ public class Database {
             if(result.next() == false){
                 System.out.println("No results");
                 return false;
-            }else{
-                do {
-                    String data = result.getString("username");
-                    String pass = result.getString("password");
-                    System.out.println(data + "\t" + pass);
-                }while(result.next());
             }
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
         return true;
+    }
+
+    public boolean checkPassword (String user, String pass){
+        String check = "SELECT password FROM Users WHERE username LIKE ?";
+
+        try (Connection conn = this.connect()){
+            PreparedStatement pstmt = conn.prepareStatement(check);
+            pstmt.setString(1, user);
+            ResultSet result = pstmt.executeQuery();
+            String pswd = result.getString("password");
+
+            if (hashAndCheck.checkHash(pass, pswd)){
+                return true;
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("Incorrect Password");
+        return false;
     }
 
 
@@ -68,6 +77,26 @@ public class Database {
         }catch (SQLException e){
             System.out.println(e.getMessage());
             lblError2.setText("Didn't pass createAcc");
+        }
+    }
+
+
+    public void inputData (String[] data){
+
+
+        String insert = "INSERT INTO Answers (username, question1, question2, question3, question4, question5," +
+                " question6, question7, question8, question9, question10) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+
+        try (Connection conn = this.connect()){
+            PreparedStatement pstmt = conn.prepareStatement(insert);
+            for (int i = 0; i < 11; i++) {
+                pstmt.setString(i+1, data[i]);
+            }
+
+
+            pstmt.executeUpdate();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
         }
     }
 }
