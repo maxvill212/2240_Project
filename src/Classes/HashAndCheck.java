@@ -62,6 +62,8 @@ public class HashAndCheck {
     }
 }
 
+//Away from Design
+
 
 
 
