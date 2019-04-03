@@ -2,6 +2,8 @@ package Questions.Question2;
 
 import Classes.Database;
 import Questions.Question3.Question3;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,15 +24,13 @@ public class Question2 implements Initializable {
 
     String results[];
     int i;
-
-    @FXML
-    private Label lblQuestion1;
-
-    @FXML
-    private TextField txtField1;
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("Apartment", "Semi Detached", "Town House", "Standalone");
 
     @FXML
     private Button btnSubmit;
+
+    @FXML
+    private ChoiceBox cBoxQ2;
 
 
 
@@ -43,15 +43,11 @@ public class Question2 implements Initializable {
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
-            results[i] = txtField1.getText();
+            results[i] =  cBoxQ2.getValue().toString();
             i++;
+
             Question3 question3 = fxmlLoader.getController();
             question3.sendToNext(results, i);
-
-            ChoiceBox<String> choiceBox = new ChoiceBox<>();
-//            Create Items returns observableList to add items
-            choiceBox.getItems().addAll("Apartment", "Semi Detached", "Town House", "Standalone");
-            choiceBox.setValue("Apartment");
 
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
@@ -79,5 +75,7 @@ public class Question2 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cBoxQ2.setItems(choiceBoxList);
+        cBoxQ2.setValue("Apartment");
     }
 }

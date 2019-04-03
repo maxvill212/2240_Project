@@ -41,16 +41,36 @@ public class Database {
                 System.out.println("No results");
                 return false;
             }else{
-                do {
-                    String data = result.getString("username");
-                    String pass = result.getString("password");
-//                    System.out.println(data + "\t" + pass);
-                }while(result.next());
+//                do {
+//                    String data = result.getString("username");
+//                    String pass = result.getString("password");
+////                    System.out.println(data + "\t" + pass);
+//                }while(result.next());
             }
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
         return true;
+    }
+
+    public boolean checkPassword (String user, String pass){
+        String check = "SELECT password FROM Users WHERE username LIKE ?";
+
+        try (Connection conn = this.connect()){
+            PreparedStatement pstmt = conn.prepareStatement(check);
+            pstmt.setString(1, user);
+            ResultSet result = pstmt.executeQuery();
+            String pswd = result.getString("password");
+
+            if (pass.equals(pswd)){
+                return true;
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("Incorrect Password");
+        return false;
     }
 
 

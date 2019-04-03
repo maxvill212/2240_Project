@@ -32,7 +32,7 @@
                                 <TextField fx:id="txtUsername" layoutX="207.0" layoutY="79.0" promptText="Username" />
                                 <TextField fx:id="txtPass" layoutX="207.0" layoutY="133.0" promptText="Password" />
                                 <Button fx:id="btnLogin" layoutX="272.0" layoutY="195.0" mnemonicParsing="false" onAction="#login" text="Login" />
-                                <Label fx:id="lblError" layoutX="196.0" layoutY="257.0" text="Username or Password Incorect" textAlignment="CENTER" textFill="RED" />
+                                <Label fx:id="lblError" layoutX="196.0" layoutY="257.0" text="Username or Password Incorect" textAlignment="CENTER" textFill="RED" visible="false" />
                             </children>
                         </AnchorPane>
                     </content>

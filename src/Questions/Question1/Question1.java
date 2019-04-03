@@ -1,6 +1,8 @@
 package Questions.Question1;
 
 import Questions.Question2.Question2;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,16 +23,17 @@ public class Question1 implements Initializable {
 
     String results[];
     int i;
-
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7+");
 
     @FXML
     private Label lblQuestion1;
-
     @FXML
     private TextField txtField1;
-
     @FXML
     private Button btnSubmit;
+    @FXML
+    private ChoiceBox cBoxQ1;
+
 
 
 
@@ -43,7 +46,7 @@ public class Question1 implements Initializable {
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
-            results[i] = txtField1.getText();
+            results[i] =  cBoxQ1.getValue().toString();
             i++;
             Question2 question2 = fxmlLoader.getController();
             question2.sendToNext(results, i);
@@ -77,5 +80,7 @@ public class Question1 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cBoxQ1.setItems(choiceBoxList);
+        cBoxQ1.setValue("1");
     }
 }

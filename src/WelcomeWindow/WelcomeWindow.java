@@ -103,35 +103,40 @@ public class WelcomeWindow implements Initializable {
             if(!username) {
                 lblError.setText("Username isn't recognized");
                 lblError.setVisible(true);
-            }else{
-//                UserSession.getInstance(user);
-                lblError.setText("Welcome");
-                lblError.setStyle("-fx-text-fill: green;");
-                lblError.setVisible(true);
-                TimeUnit.SECONDS.sleep(1);
+            }else {
 
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(Question1.class.getResource("Question1.fxml"));
-                    Parent question1Root = fxmlLoader.load();
+                if (database.checkPassword(user, password)) {
+                    lblError.setText("Welcome");
+                    lblError.setStyle("-fx-text-fill: green;");
+                    lblError.setVisible(true);
+                    TimeUnit.SECONDS.sleep(1);
+
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(Question1.class.getResource("Question1.fxml"));
+                        Parent question1Root = fxmlLoader.load();
 
 //                    Next 2 lines sends the username to the first question1 in the result array
-                    results[i] = user;
-                    i++;
-                    Question1 question1 = fxmlLoader.getController();
-                    question1.sendToNext(results, i);
+                        results[i] = user;
+                        i++;
+                        Question1 question1 = fxmlLoader.getController();
+                        question1.sendToNext(results, i);
 
-                    Stage questionStage = new Stage();
-                    questionStage.setScene(new Scene(question1Root));
-                    questionStage.setTitle("Question 1");
-                    questionStage.show();
+                        Stage questionStage = new Stage();
+                        questionStage.setScene(new Scene(question1Root));
+                        questionStage.setTitle("Question 1");
+                        questionStage.show();
 
 //                    Closing the stage
-                    Stage currStage = (Stage) btnLogin.getScene().getWindow();
-                    currStage.close();
+                        Stage currStage = (Stage) btnLogin.getScene().getWindow();
+                        currStage.close();
 
 
-                }catch (Exception e) {
-                    System.out.println(e.getMessage());
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }else{
+                    lblError.setText("Username or Password Incorrect");
+                    lblError.setVisible(true);
                 }
             }
         }else{
