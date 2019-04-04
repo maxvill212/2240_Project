@@ -15,8 +15,8 @@
          </font>
       </Label>
       <Button fx:id="btnSubmit" layoutX="204.0" layoutY="485.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
-      <ListView fx:id="list" layoutX="49.0" layoutY="165.0" prefHeight="252.0" prefWidth="369.0" />
+      <ListView fx:id="list" layoutX="49.0" layoutY="208.0" prefHeight="209.0" prefWidth="369.0" />
       <TextField fx:id="lblAns" layoutX="196.0" layoutY="443.0" prefHeight="31.0" prefWidth="81.0" />
-      <Label layoutX="23.0" layoutY="135.0" prefHeight="21.0" prefWidth="429.0" text="This is the average use of water (liters) in a common household " textAlignment="CENTER" />
+      <Label layoutX="49.0" layoutY="135.0" prefHeight="58.0" prefWidth="369.0" text="This is the average use of water (liters) in a common household of frequent activities" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

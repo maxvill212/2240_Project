@@ -31,6 +31,7 @@
 
 package WelcomeWindow;
 
+import Classes.Calculate;
 import Classes.Database;
 import Classes.HashAndCheck;
 import EndScreen.EndScreen;
@@ -47,6 +48,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class WelcomeWindow implements Initializable {
@@ -188,7 +190,7 @@ public class WelcomeWindow implements Initializable {
                 if (database.checkPassword(user, password)) {
 
 //                    If The login button is pressed, it brings up the first question
-                    if (btnLogin.isPressed()) {
+//                    if (btnLogin.isPressed()) {
 
 //                        Adds username as the first element of the array and prepares the first answer
 //                        to be added to the second position
@@ -207,7 +209,8 @@ public class WelcomeWindow implements Initializable {
 //                            Loads the first question and sends it the array and index indicator
                             Question1 question1 = fxmlLoader.getController();
                             question1.sendToNext(results, i);
-
+                            Calculate calculate = new Calculate();
+                            calculate.pullSplit();
 //                            Closes the current stage
                             Stage currStage = (Stage) btnLogin.getScene().getWindow();
                             currStage.close();
@@ -216,23 +219,23 @@ public class WelcomeWindow implements Initializable {
                         }
 
 //                    If the check previous results button is pressed, it brings the results page
-                    }else{
-                        try {
-                            FXMLLoader fxmlLoader = new FXMLLoader(EndScreen.class.getResource("EndScreen.fxml"));
-                            Parent endSRoot = fxmlLoader.load();
-
-                            Stage endStage = new Stage();
-                            endStage.setScene(new Scene(endSRoot));
-                            endStage.setTitle("Thank You");
-                            endStage.show();
-
-//                            Closing the stage
-                            Stage currStage = (Stage) btnPrevResults.getScene().getWindow();
-                            currStage.close();
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
-                        }
-                    }
+//                    }else{
+//                        try {
+//                            FXMLLoader fxmlLoader = new FXMLLoader(EndScreen.class.getResource("EndScreen.fxml"));
+//                            Parent endSRoot = fxmlLoader.load();
+//
+//                            Stage endStage = new Stage();
+//                            endStage.setScene(new Scene(endSRoot));
+//                            endStage.setTitle("Thank You");
+//                            endStage.show();
+//
+////                            Closing the stage
+//                            Stage currStage = (Stage) btnPrevResults.getScene().getWindow();
+//                            currStage.close();
+//                        } catch (Exception e) {
+//                            System.out.println(e.getMessage());
+//                        }
+//                    }
                 }else{
                     lblError.setText("Username or Password Incorrect");
                     lblError.setVisible(true);

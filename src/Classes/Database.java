@@ -38,6 +38,8 @@ import javafx.scene.control.Label;
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
 
@@ -74,7 +76,7 @@ public class Database {
         try(Connection conn = this.connect()){
             pstmt = conn.prepareStatement(insert);
             pstmt.setString(1, user);
-            ResultSet result = pstmt.executeQuery();
+            result = pstmt.executeQuery();
 
 //            No username were found
             if(result.next() == false){
@@ -100,8 +102,8 @@ public class Database {
         try (Connection conn = this.connect()){
             pstmt = conn.prepareStatement(insert);
             pstmt.setString(1, user);
-            ResultSet result = pstmt.executeQuery();
-            String pswd = result.getString("password");
+            result = pstmt.executeQuery();
+            pswd = result.getString("password");
 
 //            Calls the HashAndCheck object to see if the hashed password matches the input password
             if (hashAndCheck.checkHash(pass, pswd)){
@@ -124,7 +126,7 @@ public class Database {
 //        Replaces the '?' in the statement with the proper inputs
 //        Executes query
         try (Connection conn = this.connect()){
-            PreparedStatement pstmt = conn.prepareStatement(insert);
+            pstmt = conn.prepareStatement(insert);
             pstmt.setString(1, username);
             pstmt.setString(2, name);
             pstmt.setString(3, pass);
@@ -134,10 +136,10 @@ public class Database {
         }
     }
 
-//    Inserts the results of the questinnaire
+//    Inserts the results of the questionnaire
     public void inputData (String[] data){
 
-//    SQL query
+//        SQL query
         insert = "INSERT INTO Answers VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 //        Calls the connection method
@@ -145,7 +147,7 @@ public class Database {
 //        For loop to replaces the '?' in the statement with the proper inputs
 //        Execute query
         try (Connection conn = this.connect()){
-            PreparedStatement pstmt = conn.prepareStatement(insert);
+            pstmt = conn.prepareStatement(insert);
             for (int i = 0; i < data.length; i++) {
                 pstmt.setString(i+1, data[i]);
             }
@@ -153,5 +155,42 @@ public class Database {
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
+    }
+
+
+    public String[][] pullAll(){
+
+        String sqlCount;
+        int tableLength ,rsSize;
+        ResultSet countResult;
+
+        insert = "SELECT question1, question2, question3, question4, question5, question6, question7, question8," +
+                "question9, question10, question11, question12, question13, question14, question15, question16," +
+                "question17, question18, question19, question20, question21, question22, question23, question24," +
+                "question25, question26, question27, question28, question29 FROM Answers";
+        sqlCount = "SELECT COUNT (entryID) FROM Answers";
+
+        try(Connection conn = this.connect()){
+            pstmt = conn.prepareStatement(insert);
+            result = pstmt.executeQuery();
+
+            pstmt = conn.prepareStatement(sqlCount);
+            countResult = pstmt.executeQuery();
+            tableLength = countResult.getInt(1);
+            rsSize = tableLength;
+            String[][] rsArray = new String[rsSize][29];
+
+
+            int i = 0;
+
+            while (result.next()) {
+                    for (int j = 1; j < 30; j++) {
+                        rsArray[i][j-1] = result.getString(j);
+                    }i++;
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return rsSize;
     }
 }
