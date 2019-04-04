@@ -1,5 +1,6 @@
 package Questions.Question28;
 
+import EndScreen.EndScreen;
 import Questions.Question29.Question29;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,7 +49,6 @@ public class Question28 implements Initializable {
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
-
             results[i] =  cBox.getValue().toString();
             i++;
 

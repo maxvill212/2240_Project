@@ -21,23 +21,17 @@ public class Question29 implements Initializable {
 
     String results[];
     int i;
-//    ObservableList<String> itemList = FXCollections.observableArrayList("");
     Database database = new Database();
 
-    @FXML
-    private Label lblAns;
 
     @FXML
-    private TextField txtField1;
+    private TextField lblAns;
 
     @FXML
     private Button btnSubmit;
 
     @FXML
     private ListView list;
-
-
-
 
 
     @FXML
@@ -64,7 +58,7 @@ public class Question29 implements Initializable {
     }
 
 
-//    This grabs the username and array count from the previous question
+    //    This grabs the username and array count from the previous question
     public void sendToNext(String[] results, int i){
         this.results = results;
         this.i = i;
