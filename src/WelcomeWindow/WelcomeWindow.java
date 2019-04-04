@@ -33,6 +33,7 @@ package WelcomeWindow;
 
 import Classes.Database;
 import Classes.HashAndCheck;
+import EndScreen.EndScreen;
 import Questions.Question1.Question1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -186,30 +187,50 @@ public class WelcomeWindow implements Initializable {
 //                 Calls the method in Database to check if the password is correct
                 if (database.checkPassword(user, password)) {
 
-//                    Adds username as the first element of the array and prepares the first answer
-//                    to be added to the second position
-                    results[i] = user;
-                    i++;
+//                    If The login button is pressed, it brings up the first question
+                    if (btnLogin.isPressed()) {
 
+//                        Adds username as the first element of the array and prepares the first answer
+//                        to be added to the second position
+                        results[i] = user;
+                        i++;
 
-                    try {
-//                        Creates the Stage, Root and Scene for the first question
-                        FXMLLoader fxmlLoader = new FXMLLoader(Question1.class.getResource("Question1.fxml"));
-                        Parent question1Root = fxmlLoader.load();
-                        Stage questionStage = new Stage();
-                        questionStage.setScene(new Scene(question1Root));
-                        questionStage.setTitle("Question 1");
-                        questionStage.show();
+                        try {
+//                            Creates the Stage, Root and Scene for the first question
+                            FXMLLoader fxmlLoader = new FXMLLoader(Question1.class.getResource("Question1.fxml"));
+                            Parent question1Root = fxmlLoader.load();
+                            Stage questionStage = new Stage();
+                            questionStage.setScene(new Scene(question1Root));
+                            questionStage.setTitle("Question 1");
+                            questionStage.show();
 
-//                        Loads the first question and sends it the array and index indicator
-                        Question1 question1 = fxmlLoader.getController();
-                        question1.sendToNext(results, i);
+//                            Loads the first question and sends it the array and index indicator
+                            Question1 question1 = fxmlLoader.getController();
+                            question1.sendToNext(results, i);
 
-//                        Closes the current stage
-                        Stage currStage = (Stage) btnLogin.getScene().getWindow();
-                        currStage.close();
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
+//                            Closes the current stage
+                            Stage currStage = (Stage) btnLogin.getScene().getWindow();
+                            currStage.close();
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+//                    If the check previous results button is pressed, it brings the results page
+                    }else{
+                        try {
+                            FXMLLoader fxmlLoader = new FXMLLoader(EndScreen.class.getResource("EndScreen.fxml"));
+                            Parent endSRoot = fxmlLoader.load();
+
+                            Stage endStage = new Stage();
+                            endStage.setScene(new Scene(endSRoot));
+                            endStage.setTitle("Thank You");
+                            endStage.show();
+
+//                            Closing the stage
+                            Stage currStage = (Stage) btnPrevResults.getScene().getWindow();
+                            currStage.close();
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
                     }
                 }else{
                     lblError.setText("Username or Password Incorrect");
@@ -221,6 +242,7 @@ public class WelcomeWindow implements Initializable {
             lblError.setVisible(true);
         }
     }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
