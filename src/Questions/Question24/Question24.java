@@ -1,5 +1,6 @@
 package Questions.Question24;
 
+import Questions.Question25.Question25;
 import Questions.Question27.Question27;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -44,7 +45,7 @@ public class Question24 implements Initializable {
     void submit(ActionEvent event) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Question27.class.getResource("Question27.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Question25.class.getResource("Question25.fxml"));
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
@@ -52,12 +53,12 @@ public class Question24 implements Initializable {
             results[i] =  cBox.getValue().toString();
             i++;
 
-            Question27 question28 = fxmlLoader.getController();
-            question28.sendToNext(results, i);
+            Question25 question25 = fxmlLoader.getController();
+            question25.sendToNext(results, i);
 
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
-            questionStage.setTitle("Question 10");
+            questionStage.setTitle("Question 25");
             questionStage.show();
 
 //            Closing the stage

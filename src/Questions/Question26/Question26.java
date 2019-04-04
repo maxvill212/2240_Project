@@ -52,12 +52,12 @@ public class Question26 implements Initializable {
             results[i] =  cBox.getValue().toString();
             i++;
 
-            Question27 question28 = fxmlLoader.getController();
-            question28.sendToNext(results, i);
+            Question27 question27 = fxmlLoader.getController();
+            question27.sendToNext(results, i);
 
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
-            questionStage.setTitle("Question 10");
+            questionStage.setTitle("Question 27");
             questionStage.show();
 
 //            Closing the stage

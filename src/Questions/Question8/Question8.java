@@ -45,7 +45,7 @@ public class Question8 implements Initializable {
     void submit(ActionEvent event) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Question9.class.getResource("Question10.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Question9.class.getResource("Question9.fxml"));
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
