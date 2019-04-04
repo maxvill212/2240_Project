@@ -65,7 +65,7 @@ public class Database {
     }
 
 
-    public void createAcc (String username, String name, String pass, Label lblError2){
+    public void createAcc (String username, String name, String pass){
         String insert = "INSERT INTO Users (username, name, password) VALUES(?,?,?)";
 
         try (Connection conn = this.connect()){
@@ -76,7 +76,6 @@ public class Database {
             pstmt.executeUpdate();
         }catch (SQLException e){
             System.out.println(e.getMessage());
-            lblError2.setText("Didn't pass createAcc");
         }
     }
 
