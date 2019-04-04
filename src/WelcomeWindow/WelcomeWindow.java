@@ -1,3 +1,30 @@
+//<editor-fold desc="About Class"
+/*************************************************************************************************************
+ *                                                                                                           *
+ *       ***************ABOUT*************************                                                       *
+ *       This is the first window the user sees                                                              *
+ *                                                                                                           *
+ *       It allows the user to login or create a new account                                                 *
+ *                                                                                                           *
+ *                                                                                                           *
+ *       **********VARIABLES WelcomeWindow************                                                       *
+ *       String                                                                                              *
+ *          result[]      -> Array that stores the user's name and all the answers                           *
+ *       Boolean                                                                                             *
+ *          username      -> Checks if the username exists in the database                                   *
+ *       Integer                                                                                             *
+ *          i             -> A count that tracks where to place the user's input in the array                *
+ *       Database                                                                                            *
+ *          database      -> The object that allows this page to long onto the database                      *
+ *       HashAndCheck                                                                                        *
+ *          hashAndCheck  -> The object that allows this page to access the various methods of HashAndCheck  *
+ *                                                                                                           *
+ ************************************************************************************************************/
+//</editor-fold>
+
+
+
+
 package WelcomeWindow;
 
 import Classes.Database;
@@ -14,14 +41,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WelcomeWindow implements Initializable {
 
-    @FXML
-    private BorderPane welcomeWindow;
     @FXML
     private TextField txtUsername;
     @FXML
@@ -53,9 +77,7 @@ public class WelcomeWindow implements Initializable {
     Database database = new Database();
     HashAndCheck hashAndCheck = new HashAndCheck();
 
-
-
-
+//    The method that is called when the user submits a new account
     @FXML
     void CreateAccount(ActionEvent event) {
 
