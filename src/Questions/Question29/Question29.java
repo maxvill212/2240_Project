@@ -67,6 +67,18 @@ public class Question29 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        list.getItems().addAll("Toilet Flush: 9","Brushing Teeth: 0.4","Washing Hands: 0.3","Bath: 75","Shower: 22/Minute","Full Kitchen Sink: 25","Dishwasher: 29","Washing Machine: 75 per load","Cooking: 1","Water for tea/coffee, drinking","Dripping Tap: 35/week","Pet Water Bowls");
+        list.getItems().addAll("Toilet Flush:                                     9",
+                "Brushing Teeth:                               0.4",
+                "Washing Hands:                              0.3",
+                "Bath:                                                75",
+                "Shower:                                           22 / Minute",
+                "Full Kitchen Sink:                             25",
+                "Dishwasher:                                     29",
+                "Washing Machine:                           75 / load",
+                "Cooking:                                           1",
+                "Dripping Tap:                                   20 / week",
+                "Pet Water Bowls",
+                "Water for tea/coffee," +
+                        "drinking");
     }
 }
