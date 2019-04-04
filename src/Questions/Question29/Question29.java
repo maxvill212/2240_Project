@@ -10,10 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -24,11 +21,11 @@ public class Question29 implements Initializable {
 
     String results[];
     int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("");
+//    ObservableList<String> itemList = FXCollections.observableArrayList("");
     Database database = new Database();
 
     @FXML
-    private Label lblQuestion1;
+    private Label lblAns;
 
     @FXML
     private TextField txtField1;
@@ -37,7 +34,8 @@ public class Question29 implements Initializable {
     private Button btnSubmit;
 
     @FXML
-    private ChoiceBox cBox;
+    private ListView list;
+
 
 
 
@@ -45,7 +43,7 @@ public class Question29 implements Initializable {
     @FXML
     void submit(ActionEvent event) {
 
-        results[i] =  cBox.getValue().toString();
+        results[i] =  lblAns.getText();
         database.inputData(results);
 
         try {
@@ -75,7 +73,6 @@ public class Question29 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cBox.setItems(choiceBoxList);
-        cBox.setValue("Test");
+        list.getItems().addAll("Toilet Flush: 9","Brushing Teeth: 0.4","Washing Hands: 0.3","Bath: 75","Shower: 22/Minute","Full Kitchen Sink: 25","Dishwasher: 29","Washing Machine: 75 per load","Cooking: 1","Water for tea/coffee, drinking","Dripping Tap: 35/week","Pet Water Bowls");
     }
 }

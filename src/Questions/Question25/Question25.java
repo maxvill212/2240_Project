@@ -58,7 +58,7 @@ public class Question25 implements Initializable {
 //            Call the checkbox counter method to see how many are checked
             checkResultArray = checkBoxes(checkFood, checkPaper, checkGlass, checkCans, checkPlastic, checkElec);
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Question26.class.getResource("Question28.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Question26.class.getResource("Question26.fxml"));
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
