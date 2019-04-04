@@ -1,9 +1,6 @@
 package Questions.Question25;
 
 import Questions.Question26.Question26;
-import Questions.Question27.Question27;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,7 +58,7 @@ public class Question25 implements Initializable {
 //            Call the checkbox counter method to see how many are checked
             checkResultArray = checkBoxes(checkFood, checkPaper, checkGlass, checkCans, checkPlastic, checkElec);
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Question26.class.getResource("Question26.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Question26.class.getResource("Question28.fxml"));
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array

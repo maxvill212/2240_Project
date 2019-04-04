@@ -1,7 +1,7 @@
 package Questions.Question27;
 
-import Classes.Database;
-import EndScreen.EndScreen;
+import Questions.Question28.Question28;
+import Questions.Question29.Question29;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,8 +24,7 @@ public class Question27 implements Initializable {
 
     String results[];
     int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("Test");
-    Database database = new Database();
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0-2", "3", "4", "5", "6", "7");
 
     @FXML
     private Label lblQuestion1;
@@ -45,22 +44,29 @@ public class Question27 implements Initializable {
     @FXML
     void submit(ActionEvent event) {
 
-        results[i] =  cBox.getValue().toString();
-        database.inputData(results);
-
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(EndScreen.class.getResource("EndScreen.fxml"));
-            Parent endSRoot = fxmlLoader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(Question28.class.getResource("Question28.fxml"));
+            Parent questionRoot = fxmlLoader.load();
 
-            Stage endStage = new Stage();
-            endStage.setScene(new Scene(endSRoot));
-            endStage.setTitle("Thank You");
-            endStage.show();
+//            Next 2 lines sends the username to the first question in the result array
+
+            results[i] =  cBox.getValue().toString();
+            i++;
+
+            Question28 question28 = fxmlLoader.getController();
+            question28.sendToNext(results, i);
+
+            Stage questionStage = new Stage();
+            questionStage.setScene(new Scene(questionRoot));
+            questionStage.setTitle("Question 28");
+            questionStage.show();
 
 //            Closing the stage
             Stage currStage = (Stage) btnSubmit.getScene().getWindow();
             currStage.close();
-        }catch (Exception e){
+
+
+        }catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -76,6 +82,6 @@ public class Question27 implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cBox.setItems(choiceBoxList);
-        cBox.setValue("Test");
+        cBox.setValue("0-2");
     }
 }

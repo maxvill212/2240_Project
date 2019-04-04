@@ -1,6 +1,7 @@
-package Questions.Question9;
+package Questions.Question29;
 
-import Questions.Question10.Question10;
+import Classes.Database;
+import EndScreen.EndScreen;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,12 +19,13 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Question9 implements Initializable {
+public class Question29 implements Initializable {
 
 
     String results[];
     int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0", "1-10", "11-30", "31+");
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("");
+    Database database = new Database();
 
     @FXML
     private Label lblQuestion1;
@@ -43,29 +45,22 @@ public class Question9 implements Initializable {
     @FXML
     void submit(ActionEvent event) {
 
+        results[i] =  cBox.getValue().toString();
+        database.inputData(results);
+
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Question10.class.getResource("Question10.fxml"));
-            Parent questionRoot = fxmlLoader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(EndScreen.class.getResource("EndScreen.fxml"));
+            Parent endSRoot = fxmlLoader.load();
 
-//            Next 2 lines sends the username to the first question in the result array
-
-            results[i] =  cBox.getValue().toString();
-            i++;
-
-            Question10 question10 = fxmlLoader.getController();
-            question10.sendToNext(results, i);
-
-            Stage questionStage = new Stage();
-            questionStage.setScene(new Scene(questionRoot));
-            questionStage.setTitle("Question 10");
-            questionStage.show();
+            Stage endStage = new Stage();
+            endStage.setScene(new Scene(endSRoot));
+            endStage.setTitle("Thank You");
+            endStage.show();
 
 //            Closing the stage
             Stage currStage = (Stage) btnSubmit.getScene().getWindow();
             currStage.close();
-
-
-        }catch (Exception e) {
+        }catch (Exception e){
             System.out.println(e.getMessage());
         }
     }
@@ -81,6 +76,6 @@ public class Question9 implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cBox.setItems(choiceBoxList);
-        cBox.setValue("0");
+        cBox.setValue("Test");
     }
 }

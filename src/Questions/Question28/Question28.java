@@ -1,6 +1,6 @@
-package Questions.Question9;
+package Questions.Question28;
 
-import Questions.Question10.Question10;
+import Questions.Question29.Question29;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,12 +18,12 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Question9 implements Initializable {
+public class Question28 implements Initializable {
 
 
     String results[];
     int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0", "1-10", "11-30", "31+");
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("No", "Yes");
 
     @FXML
     private Label lblQuestion1;
@@ -44,7 +44,7 @@ public class Question9 implements Initializable {
     void submit(ActionEvent event) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Question10.class.getResource("Question10.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Question29.class.getResource("Question29.fxml"));
             Parent questionRoot = fxmlLoader.load();
 
 //            Next 2 lines sends the username to the first question in the result array
@@ -52,12 +52,12 @@ public class Question9 implements Initializable {
             results[i] =  cBox.getValue().toString();
             i++;
 
-            Question10 question10 = fxmlLoader.getController();
-            question10.sendToNext(results, i);
+            Question29 question29 = fxmlLoader.getController();
+            question29.sendToNext(results, i);
 
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
-            questionStage.setTitle("Question 10");
+            questionStage.setTitle("Question 29");
             questionStage.show();
 
 //            Closing the stage
@@ -81,6 +81,6 @@ public class Question9 implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cBox.setItems(choiceBoxList);
-        cBox.setValue("0");
+        cBox.setValue("No");
     }
 }

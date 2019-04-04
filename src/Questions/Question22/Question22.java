@@ -1,7 +1,6 @@
 package Questions.Question22;
 
 import Questions.Question23.Question23;
-import Questions.Question27.Question27;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
