@@ -69,7 +69,8 @@ public class WelcomeWindow implements Initializable {
     private TextField txtCreatePass2;
     @FXML
     private Label lblError2;
-
+    @FXML
+    private Button btnPrevResults;
 
 
 //    Variable declaration
