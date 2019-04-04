@@ -12,17 +12,14 @@ import java.util.ResourceBundle;
 public class EndScreen implements Initializable {
 
     @FXML
-    private Label avg;
+    private Label lblAvg;
+    @FXML
+    private Label getLblAvg;
 
     Calculate calculate = new Calculate();
 
-    @FXML
-    public void start(Stage welcomeStage) throws Exception{
-
-        calculate.pull();
 
 
-    }
 
 
 
@@ -37,7 +34,8 @@ public class EndScreen implements Initializable {
     //    No data is preloaded onto the scene
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        lblAvg.setText("Test");
+        calculate.pull();
     }
 }
 

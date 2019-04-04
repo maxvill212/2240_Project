@@ -68,6 +68,7 @@ public class Question24 implements Initializable {
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
             questionStage.setTitle("Question 25");
+            questionStage.setResizable(false);
             questionStage.show();
 
             Question25 question25 = fxmlLoader.getController();

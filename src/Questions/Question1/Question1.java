@@ -69,6 +69,7 @@ public class Question1 implements Initializable {
     void submit(ActionEvent event) {
         try {
 
+
 //            Adds the answer of this question to array and prepares the next answer
 //            to be added to the next position position
             results[i] =  cBox.getValue().toString();
@@ -97,6 +98,7 @@ public class Question1 implements Initializable {
 
 
     }
+
 
 
 //    Receives the username and array counter from the Welcome Screen

@@ -20,8 +20,8 @@
    <center>
       <AnchorPane prefHeight="244.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="231.0" layoutY="63.0" text="The average score is:" />
-            <Label fx:id="avg" layoutX="283.0" layoutY="108.0" text="Avg" />
+            <Label fx:id="lblAvgMessage" layoutX="231.0" layoutY="118.0" text="The average score is:" />
+            <Label fx:id="lblAvg" layoutX="287.0" layoutY="153.0" text="Avg" />
          </children></AnchorPane>
    </center>
 </BorderPane>

@@ -13,7 +13,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnSubmit" layoutX="211.0" layoutY="163.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
+      <Button fx:id="btnSubmit" layoutX="226.0" layoutY="163.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
       <ChoiceBox fx:id="cBox" layoutX="170.0" layoutY="104.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

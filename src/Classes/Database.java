@@ -56,8 +56,7 @@ public class Database {
     HashAndCheck hashAndCheck = new HashAndCheck();
     ResultSet result;
     PreparedStatement pstmt;
-    int i = 0, rsSize;
-
+    int i = 0, rsSize = 0;
 
 
 
@@ -167,44 +166,45 @@ public class Database {
         }
     }
 
-
+//    Method to pull all results from the database
     public String[][] pullAll(){
 
+//        Uses getTableLength to set the array column size
         rsSize = getTableLength();
         rsArray = new String[rsSize][29];
 
-
+//        SQL query
         insert = "SELECT question1, question2, question3, question4, question5, question6, question7, question8," +
                 "question9, question10, question11, question12, question13, question14, question15, question16," +
                 "question17, question18, question19, question20, question21, question22, question23, question24," +
                 "question25, question26, question27, question28, question29 FROM Answers";
 
+//        Connection to teh database and execution of the query
         try(Connection conn = this.connect()){
             pstmt = conn.prepareStatement(insert);
             result = pstmt.executeQuery();
 
+//            Populates the array
             while (result.next()) {
                     for (int j = 1; j < 30; j++) {
                         rsArray[i][j-1] = result.getString(j);
                     }i++;
             }
-
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
         return rsArray;
     }
 
+//    Method to get the table column length
     public int getTableLength(){
-        String sqlCount;
-        int rsSize = 0, tableLength;
+
         ResultSet countResult;
-        try {
-            sqlCount = "SELECT COUNT (entryID) FROM Answers";
-            pstmt = conn.prepareStatement(sqlCount);
+        try (Connection conn = this.connect()) {
+            insert = "SELECT COUNT (entryID) FROM Answers";
+            pstmt = conn.prepareStatement(insert);
             countResult = pstmt.executeQuery();
-            tableLength = countResult.getInt(1);
-            rsSize = tableLength;
+            rsSize = countResult.getInt(1);
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }
