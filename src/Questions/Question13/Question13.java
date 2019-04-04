@@ -1,3 +1,26 @@
+//<editor-fold desc="About Class"
+/*********************************************************************************************************************
+ *                                                                                                                   *
+ *       ***************ABOUT**********************                                                                  *
+ *       This is question 13                                                                                         *
+ *                                                                                                                   *
+ *       User answers and passed to the next question                                                                *
+ *       The result is saved in the result array and passed to the next question                                     *
+ *                                                                                                                   *
+ *       **********VARIABLES Question 13************                                                                 *
+ *       String                                                                                                      *
+ *          result[]             -> Array that stores the user's name and all the answers                            *
+ *       Integer                                                                                                     *
+ *          i                    -> A count that tracks where to place the user's input in the array                 *
+ *       ObservableList<String>                                                                                      *
+ *          choiceBoxList        -> The object that allows The list of options to be displayed on the screen         *
+ *                                                                                                                   *
+ ********************************************************************************************************************/
+//</editor-fold>
+
+
+
+
 package Questions.Question13;
 
 import Questions.Question14.Question14;

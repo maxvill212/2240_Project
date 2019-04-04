@@ -1,3 +1,15 @@
+//<editor-fold desc="About Class"
+/*********************************************************************************************************************
+ *                                                                                                                   *
+ *       ***************ABOUT**********************                                                                  *
+ *       This is the algorithm that hashes the password                                                              *
+ *                                                                                                                   *
+ ********************************************************************************************************************/
+//</editor-fold>
+
+
+
+
 // Copyright (c) 2006 Damien Miller <djm@mindrot.org>
 //
 // Permission to use, copy, modify, and distribute this software for any
@@ -12,7 +24,7 @@
 // ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-package org.mindrot.jbcrypt;
+package jBCryptLibrary;
 
 import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;

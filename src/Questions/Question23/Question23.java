@@ -1,3 +1,26 @@
+//<editor-fold desc="About Class"
+/*********************************************************************************************************************
+ *                                                                                                                   *
+ *       ***************ABOUT**********************                                                                  *
+ *       This is question 23                                                                                         *
+ *                                                                                                                   *
+ *       User answers and passed to the next question                                                                *
+ *       The result is saved in the result array and passed to the next question                                     *
+ *                                                                                                                   *
+ *       **********VARIABLES Question 23************                                                                 *
+ *       String                                                                                                      *
+ *          result[]             -> Array that stores the user's name and all the answers                            *
+ *       Integer                                                                                                     *
+ *          i                    -> A count that tracks where to place the user's input in the array                 *
+ *       ObservableList<String>                                                                                      *
+ *          choiceBoxList        -> The object that allows The list of options to be displayed on the screen         *
+ *                                                                                                                   *
+ ********************************************************************************************************************/
+//</editor-fold>
+
+
+
+
 package Questions.Question23;
 
 import Questions.Question24.Question24;
@@ -18,42 +41,33 @@ import java.util.ResourceBundle;
 
 public class Question23 implements Initializable {
 
-
     String results[];
     int i;
     ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0-20", "21-40", "41-70", "71-100", "100+");
 
-
     @FXML
     private Button btnSubmit;
-
     @FXML
     private ChoiceBox cBox;
-
-
 
 
     @FXML
     void submit(ActionEvent event) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Question24.class.getResource("Question24.fxml"));
-            Parent questionRoot = fxmlLoader.load();
-
-//            Next 2 lines sends the username to the first question in the result array
-
             results[i] =  cBox.getValue().toString();
             i++;
 
-            Question24 question24 = fxmlLoader.getController();
-            question24.sendToNext(results, i);
-
+            FXMLLoader fxmlLoader = new FXMLLoader(Question24.class.getResource("Question24.fxml"));
+            Parent questionRoot = fxmlLoader.load();
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
             questionStage.setTitle("Question 24");
             questionStage.show();
 
-//            Closing the stage
+            Question24 question24 = fxmlLoader.getController();
+            question24.sendToNext(results, i);
+
             Stage currStage = (Stage) btnSubmit.getScene().getWindow();
             currStage.close();
 
@@ -63,13 +77,10 @@ public class Question23 implements Initializable {
         }
     }
 
-
-//    This grabs the username and array count from the previous question
     public void sendToNext(String[] results, int i){
         this.results = results;
         this.i = i;
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

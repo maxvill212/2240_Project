@@ -19,7 +19,7 @@
  *       Integer                                                                                                     *
  *          i             -> A count that tracks where to place the user's input in the array                        *
  *       Database                                                                                                    *
- *          database      -> The object that allows this page to long onto the database                              *
+ *          database      -> The object that allows this page to log onto the database                               *
  *       HashAndCheck                                                                                                *
  *          hashAndCheck  -> The object that allows this page to access the various methods of HashAndCheck          *
  *                                                                                                                   *
@@ -214,6 +214,7 @@ public class WelcomeWindow implements Initializable {
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
+
 //                    If the check previous results button is pressed, it brings the results page
                     }else{
                         try {
@@ -243,7 +244,7 @@ public class WelcomeWindow implements Initializable {
         }
     }
 
-
+//    No data is preloaded onto the scene
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

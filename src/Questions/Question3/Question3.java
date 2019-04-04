@@ -1,3 +1,26 @@
+//<editor-fold desc="About Class"
+/*********************************************************************************************************************
+ *                                                                                                                   *
+ *       ***************ABOUT**********************                                                                  *
+ *       This is the third question                                                                                  *
+ *                                                                                                                   *
+ *       User answers and passed to the next question                                                                *
+ *       The result is saved in the result array and passed to the next question                                     *
+ *                                                                                                                   *
+ *       **********VARIABLES Question 3************                                                                  *
+ *       String                                                                                                      *
+ *          result[]             -> Array that stores the user's name and all the answers                            *
+ *       Integer                                                                                                     *
+ *          i                    -> A count that tracks where to place the user's input in the array                 *
+ *       ObservableList<String>                                                                                      *
+ *          choiceBoxList        -> The object that allows The list of options to be displayed on the screen         *
+ *                                                                                                                   *
+ ********************************************************************************************************************/
+//</editor-fold>
+
+
+
+
 package Questions.Question3;
 
 import Questions.Question4.Question4;
@@ -20,63 +43,57 @@ import java.util.ResourceBundle;
 
 public class Question3 implements Initializable {
 
-
+//    Variable Declaration, also states what options the user will be able to choose from
     String results[];
     int i;
     ObservableList<String> choiceBoxList = FXCollections.observableArrayList("Apartment", "Semi Detached", "Town House", "Standalone");
 
-    @FXML
-    private Label lblQuestion1;
-
-    @FXML
-    private TextField txtField1;
-
+//    Pulls items from the .fxml file
     @FXML
     private Button btnSubmit;
-
     @FXML
     private ChoiceBox cBox;
 
 
-
-
+//    When the user clicks submit
     @FXML
     void submit(ActionEvent event) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Question4.class.getResource("Question4.fxml"));
-            Parent questionRoot = fxmlLoader.load();
 
-//            Next 2 lines sends the username to the first question in the result array
+//            Adds the answer of this question to array and prepares the next answer
+//            to be added to the next position position
             results[i] =  cBox.getValue().toString();
             i++;
 
-            Question4 question4 = fxmlLoader.getController();
-            question4.sendToNext(results, i);
-
+//            Creates the next question's Stage, Root and Scene
+            FXMLLoader fxmlLoader = new FXMLLoader(Question4.class.getResource("Question4.fxml"));
+            Parent questionRoot = fxmlLoader.load();
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
             questionStage.setTitle("Question 4");
             questionStage.show();
 
-//            Closing the stage
+//            Sends the answer and array index to the next question
+            Question4 question4 = fxmlLoader.getController();
+            question4.sendToNext(results, i);
+
+//            Closing the current stage
             Stage currStage = (Stage) btnSubmit.getScene().getWindow();
             currStage.close();
-
-
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
 
-//    This grabs the username and array count from the previous question
+//    Receives the answer and array counter from the previous question
     public void sendToNext(String[] results, int i){
         this.results = results;
         this.i = i;
     }
 
-
+//    Populates the choice Box with the options the user has and sets default value
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cBox.setItems(choiceBoxList);

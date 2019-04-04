@@ -1,3 +1,28 @@
+//<editor-fold desc="About Class"
+/*********************************************************************************************************************
+ *                                                                                                                   *
+ *       ***************ABOUT**********************                                                                  *
+ *       This is question 25                                                                                         *
+ *                                                                                                                   *
+ *       User answers and passed to the next question                                                                *
+ *       The result is saved in the result array and passed to the next question                                     *
+ *                                                                                                                   *
+ *       **********VARIABLES Question 25************                                                                 *
+ *       String                                                                                                      *
+ *          result[]             -> Array that stores the user's name and all the answers                            *
+ *          checkResultArray     -> This stores the amount of check boxes the user ticks                             *
+ *       Integer                                                                                                     *
+ *          i                    -> A count that tracks where to place the user's input in the array                 *
+ *          checkResultInt       -> Counter to store how many check boxes are ticked                                 *
+ *       ObservableList<String>                                                                                      *
+ *          choiceBoxList        -> The object that allows The list of options to be displayed on the screen         *
+ *                                                                                                                   *
+ ********************************************************************************************************************/
+//</editor-fold>
+
+
+
+
 package Questions.Question25;
 
 import Questions.Question26.Question26;
@@ -15,42 +40,31 @@ import java.util.ResourceBundle;
 
 public class Question25 implements Initializable {
 
-
+//    Variable Declaration
     String results[];
     int i, checkResultInt = 0;
     String checkResultArray;
 
-    @FXML
-    private Label lblQuestion1;
-
-    @FXML
-    private TextField txtField1;
-
+//    Pulls items from the .fxml file
     @FXML
     private Button btnSubmit;
-
     @FXML
     private CheckBox checkFood;
-
     @FXML
     private CheckBox checkPaper;
-
     @FXML
     private CheckBox checkGlass;
-
     @FXML
     private CheckBox checkCans;
-
     @FXML
     private CheckBox checkPlastic;
-
     @FXML
     private CheckBox checkElec;
 
 
 
 
-
+//    When the user clicks submit
     @FXML
     void submit(ActionEvent event) {
 
@@ -58,23 +72,24 @@ public class Question25 implements Initializable {
 //            Call the checkbox counter method to see how many are checked
             checkResultArray = checkBoxes(checkFood, checkPaper, checkGlass, checkCans, checkPlastic, checkElec);
 
-            FXMLLoader fxmlLoader = new FXMLLoader(Question26.class.getResource("Question26.fxml"));
-            Parent questionRoot = fxmlLoader.load();
-
-//            Next 2 lines sends the username to the first question in the result array
-
+//            Adds the answer of this question to array and prepares the next answer
+//            to be added to the next position position
             results[i] =  checkResultArray;
             i++;
 
-            Question26 question26 = fxmlLoader.getController();
-            question26.sendToNext(results, i);
-
+//            Creates the next question's Stage, Root and Scene
+            FXMLLoader fxmlLoader = new FXMLLoader(Question26.class.getResource("Question26.fxml"));
+            Parent questionRoot = fxmlLoader.load();
             Stage questionStage = new Stage();
             questionStage.setScene(new Scene(questionRoot));
             questionStage.setTitle("Question 26");
             questionStage.show();
 
-//            Closing the stage
+//            Sends the answer and array index to the next question
+            Question26 question26 = fxmlLoader.getController();
+            question26.sendToNext(results, i);
+
+//            Closing the current stage
             Stage currStage = (Stage) btnSubmit.getScene().getWindow();
             currStage.close();
 
@@ -85,18 +100,19 @@ public class Question25 implements Initializable {
     }
 
 
-//    This grabs the username and array count from the previous question
+//    Receives the answer and array counter from the previous question
     public void sendToNext(String[] results, int i){
         this.results = results;
         this.i = i;
     }
 
-
+//    No data is preloaded onto the scene
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    //    Method to see how many checkboxes are checked
+//    Method to see how many checkboxes are checked
+//    If checked, adds one to the counter
     private String checkBoxes (CheckBox checkFood, CheckBox checkPaper, CheckBox checkGlass, CheckBox checkCans,
                                CheckBox checkPlastic, CheckBox checkElec){
 

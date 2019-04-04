@@ -1,3 +1,26 @@
+//<editor-fold desc="About Class"
+/*********************************************************************************************************************
+ *                                                                                                                   *
+ *       ***************ABOUT**********************                                                                  *
+ *       This is question 29                                                                                         *
+ *                                                                                                                   *
+ *       User answers and passed to the next question                                                                *
+ *       The result is saved in the result array and passed to the next question                                     *
+ *                                                                                                                   *
+ *       **********VARIABLES Question 29************                                                                 *
+ *       String                                                                                                      *
+ *          result[]             -> Array that stores the user's name and all the answers                            *
+ *       Integer                                                                                                     *
+ *          i                    -> A count that tracks where to place the user's input in the array                 *
+ *       Database                                                                                                    *
+ *          database      -> The object that allows this page to send the results to the database                    *
+ *                                                                                                                   *
+ ********************************************************************************************************************/
+//</editor-fold>
+
+
+
+
 package Questions.Question29;
 
 import Classes.Database;
@@ -26,10 +49,8 @@ public class Question29 implements Initializable {
 
     @FXML
     private TextField lblAns;
-
     @FXML
     private Button btnSubmit;
-
     @FXML
     private ListView list;
 
@@ -37,6 +58,7 @@ public class Question29 implements Initializable {
     @FXML
     void submit(ActionEvent event) {
 
+//        Gets the answer and stores it in the last position of the array
         results[i] =  lblAns.getText();
         database.inputData(results);
 
@@ -49,7 +71,6 @@ public class Question29 implements Initializable {
             endStage.setTitle("Thank You");
             endStage.show();
 
-//            Closing the stage
             Stage currStage = (Stage) btnSubmit.getScene().getWindow();
             currStage.close();
         }catch (Exception e){
@@ -57,14 +78,12 @@ public class Question29 implements Initializable {
         }
     }
 
-
-    //    This grabs the username and array count from the previous question
     public void sendToNext(String[] results, int i){
         this.results = results;
         this.i = i;
     }
 
-
+//    Populates the list view with the examples of daily water usage and the amount in liters
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         list.getItems().addAll("Toilet Flush:                                     9",
@@ -78,7 +97,6 @@ public class Question29 implements Initializable {
                 "Cooking:                                           1",
                 "Dripping Tap:                                   20 / week",
                 "Pet Water Bowls",
-                "Water for tea/coffee," +
-                        "drinking");
+                "Water for tea/coffee", "drinking");
     }
 }
