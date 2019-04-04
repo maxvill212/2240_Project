@@ -210,7 +210,7 @@ public class WelcomeWindow implements Initializable {
                             Question1 question1 = fxmlLoader.getController();
                             question1.sendToNext(results, i);
                             Calculate calculate = new Calculate();
-                            calculate.pullSplit();
+
 //                            Closes the current stage
                             Stage currStage = (Stage) btnLogin.getScene().getWindow();
                             currStage.close();

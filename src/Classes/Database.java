@@ -10,6 +10,8 @@
  *       Checks if the password is correct (login)                                                                   *
  *       Creates an account by inputting the new credentials in the database (createAccount)                         *
  *       Inputs the results in the database                                                                          *
+ *       Pulls all the answers from the database                                                                     *
+ *       Founds out the current length of the table                                                                  *
  *                                                                                                                   *
  *       It uses prepared statements to prevent SQL injection attacks                                                *
  *                                                                                                                   *
@@ -20,10 +22,14 @@
  *          url               -> Stores the link to the database, as well as the library used and database language  *
  *          insert            -> Stores the SQLite statement                                                         *
  *          pswd              -> Stores the hashed password pulled from the database                                 *
+ *          rsArray           -> The multidimensional array that stores all results from the database                *
  *       HashAndCheck                                                                                                *
  *          hashAndCheck      -> The object that allows this page to access the various methods of HashAndCheck      *
  *       PreparedStatement                                                                                           *
  *          pstmt             -> Object that takes 'insert' to be used as a prepared statement                       *
+ *       Integer                                                                                                     *
+ *          i                 -> Changes the column for the pullAll method                                           *
+ *          rsSize            -> Stores the length of the table in the pullAll method                                *
  *                                                                                                                   *
  ********************************************************************************************************************/
 //</editor-fold>
@@ -46,9 +52,13 @@ public class Database {
 //    Variable declaration
     private Connection conn = null;
     String insert, pswd, url = "jdbc:sqlite:src/Database/database.db";
+    String[][] rsArray;
     HashAndCheck hashAndCheck = new HashAndCheck();
     ResultSet result;
     PreparedStatement pstmt;
+    int i = 0, rsSize;
+
+
 
 
     public Connection connect(){
@@ -160,34 +170,41 @@ public class Database {
 
     public String[][] pullAll(){
 
-        String sqlCount;
-        int tableLength ,rsSize;
-        ResultSet countResult;
+        rsSize = getTableLength();
+        rsArray = new String[rsSize][29];
+
 
         insert = "SELECT question1, question2, question3, question4, question5, question6, question7, question8," +
                 "question9, question10, question11, question12, question13, question14, question15, question16," +
                 "question17, question18, question19, question20, question21, question22, question23, question24," +
                 "question25, question26, question27, question28, question29 FROM Answers";
-        sqlCount = "SELECT COUNT (entryID) FROM Answers";
 
         try(Connection conn = this.connect()){
             pstmt = conn.prepareStatement(insert);
             result = pstmt.executeQuery();
-
-            pstmt = conn.prepareStatement(sqlCount);
-            countResult = pstmt.executeQuery();
-            tableLength = countResult.getInt(1);
-            rsSize = tableLength;
-            String[][] rsArray = new String[rsSize][29];
-
-
-            int i = 0;
 
             while (result.next()) {
                     for (int j = 1; j < 30; j++) {
                         rsArray[i][j-1] = result.getString(j);
                     }i++;
             }
+
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return rsArray;
+    }
+
+    public int getTableLength(){
+        String sqlCount;
+        int rsSize = 0, tableLength;
+        ResultSet countResult;
+        try {
+            sqlCount = "SELECT COUNT (entryID) FROM Answers";
+            pstmt = conn.prepareStatement(sqlCount);
+            countResult = pstmt.executeQuery();
+            tableLength = countResult.getInt(1);
+            rsSize = tableLength;
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }

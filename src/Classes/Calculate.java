@@ -8,10 +8,13 @@
  *       The result is saved in the result array and passed to the next question                                     *
  *                                                                                                                   *
  *       **********VARIABLES Calculate*************                                                                  *
- *       ResultSet                                                                                                   *
+ *       String                                                                                                      *
  *          result         -> Stores the result from the query sent to the database                                  *
  *       Database                                                                                                    *
  *          database       -> The object that allows this page to interact with the database                         *
+ *       Integer                                                                                                     *
+ *          rsSize         -> Stores the length of the table in the pullAll method in Database                       *
+ *          avg            -> Stores the average score of others in the database                                     *
  *                                                                                                                   *
  ********************************************************************************************************************/
 //</editor-fold>
@@ -26,12 +29,23 @@ import java.sql.SQLException;
 
 public class Calculate {
 
-    ResultSet result;
+    int rsSize, avg;
+    String result[][];
     Database database = new Database();
 
-//    Pulls the data from database and splits it into
-    public void pullSplit(){
-        result = database.pullAll();
 
+//    Pulls the data from database
+    public String [][] pull(){
+        rsSize = database.getTableLength();
+        result = new String[rsSize][29];
+        result = database.pullAll();
+        return result;
+    }
+
+
+    public int average(){
+
+        result = pull();
+        return avg;
     }
 }
