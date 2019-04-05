@@ -1,6 +1,7 @@
 package EndScreen;
 
 import Classes.Calculate;
+import Classes.Database;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -12,11 +13,16 @@ import java.util.ResourceBundle;
 public class EndScreen implements Initializable {
 
     @FXML
-    private Label lblAvg;
+    private Label lblTableAvg;
     @FXML
-    private Label getLblAvg;
+    private Label lblUserScore;
 
+    int rsSize;
+    double numValue[][];
+    double avg, userResults;
+    String results[][];
     Calculate calculate = new Calculate();
+    Database database = new Database();
 
 
 
@@ -34,7 +40,10 @@ public class EndScreen implements Initializable {
     //    No data is preloaded onto the scene
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lblAvg.setText("Test");
+
+        rsSize = database.getTableLength();
+        lblTableAvg.setText(Double.toString(calculate.avgCalc(numValue)));
+        lblUserScore.setText(Double.toString(calculate.UsrResult(numValue)));
         calculate.pull();
     }
 }

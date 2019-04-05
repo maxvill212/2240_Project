@@ -28,11 +28,10 @@ package Classes;
 public class Calculate {
 
     int rsSize;
-    int numValue[][];
-    double avg;
+    double numValue[][];
+    double avg, userResults;
     String results[][];
     Database database = new Database();
-
 
 
 
@@ -41,26 +40,208 @@ public class Calculate {
 
         rsSize = database.getTableLength();
         results = new String[rsSize][29];
-        numValue = new int[rsSize][29];
+        numValue = new double[rsSize][29];
         results = database.pullAll();
         numValue = numValueArray(results);
-        
+        userResults = UsrResult(numValue);
+        avgCalc(numValue);
         return results;
     }
+
+//    Calculates the user's final result
+    public double UsrResult(double[][] numValue){
+
+            numValue[rsSize-1][1] *= 6;
+            userResults += numValue[rsSize-1][1];
+
+            numValue[rsSize-1][2] *= 6;
+            userResults += numValue[rsSize-1][2];
+
+            numValue[rsSize-1][3] *= 5;
+            userResults += numValue[rsSize-1][3];
+
+            numValue[rsSize-1][4] *= 6;
+            userResults += numValue[rsSize-1][4];
+
+            numValue[rsSize-1][5] *= 3;
+            userResults -= numValue[rsSize-1][5];
+
+            numValue[rsSize-1][6] *= 6;
+            userResults += numValue[rsSize-1][6];
+
+            numValue[rsSize-1][7] *= 5;
+            userResults += numValue[rsSize-1][7];
+
+            numValue[rsSize-1][8] *= 8;
+            userResults += numValue[rsSize-1][8];
+
+            numValue[rsSize-1][9] *= 6;
+            userResults -= numValue[rsSize-1][9];
+
+            numValue[rsSize-1][10] *= 5;
+            userResults += numValue[rsSize-1][10];
+
+            numValue[rsSize-1][11] *= 4;
+            userResults -= numValue[rsSize-1][11];
+
+            numValue[rsSize-1][12] *= 3;
+            userResults -= numValue[rsSize-1][12];
+
+            numValue[rsSize-1][13] *= 4;
+            userResults += numValue[rsSize-1][13];
+
+            numValue[rsSize-1][14] *= 2;
+            userResults += numValue[rsSize-1][14];
+
+            numValue[rsSize-1][15] *= 4;
+            userResults += numValue[rsSize-1][15];
+
+            numValue[rsSize-1][16] *= 5;
+            userResults -= numValue[rsSize-1][16];
+
+            numValue[rsSize-1][17] *= 6;
+            userResults -= numValue[rsSize-1][17];
+
+            numValue[rsSize-1][18] *= 4;
+            userResults += numValue[rsSize-1][18];
+
+            numValue[rsSize-1][19] *= 7;
+            userResults -= numValue[rsSize-1][19];
+
+            numValue[rsSize-1][20] *= 4;
+            userResults += numValue[rsSize-1][20];
+
+            numValue[rsSize-1][21] *= 2;
+            userResults += numValue[rsSize-1][21];
+
+            numValue[rsSize-1][22] *= 6;
+            userResults += numValue[rsSize-1][22];
+
+            numValue[rsSize-1][23] *= 6;
+            userResults += numValue[rsSize-1][23];
+
+            numValue[rsSize-1][24] *= 9;
+            userResults -= numValue[rsSize-1][24];
+
+            numValue[rsSize-1][25] *= 7;
+            userResults += numValue[rsSize-1][25];
+
+            numValue[rsSize-1][26] *= 7;
+            userResults += numValue[rsSize-1][26];
+
+            numValue[rsSize-1][27] *= 8;
+            userResults += numValue[rsSize-1][27];
+
+            numValue[rsSize-1][28] *= 9;
+            userResults += numValue[rsSize-1][28];
+
+//        Averages the user's result for a final score
+            userResults = (userResults/rsSize)*100;
+        return userResults;
+    }
     
-//    public double avgCalc(int[][] numValue){
-//
-//        for (int i = 0; i < ; i++) {
-//
-//        }
-//
-//        return avg;
-//    }
+    public double avgCalc(double[][] numValue){
+
+//        Adds all columns together, finds the average and stores it in at the last row
+        for (int i = 1; i < 29; i++) {
+            for (int j = 1; j < rsSize; j++) {
+                numValue[j][i] += numValue[j-1][i];
+            }numValue[rsSize-1][i] /= rsSize;
+        }
+        numValue[rsSize-1][1] *= 6;
+        avg += numValue[rsSize-1][1];
+
+        numValue[rsSize-1][2] *= 6;
+        avg += numValue[rsSize-1][2];
+
+        numValue[rsSize-1][3] *= 5;
+        avg += numValue[rsSize-1][3];
+
+        numValue[rsSize-1][4] *= 6;
+        avg += numValue[rsSize-1][4];
+
+        numValue[rsSize-1][5] *= 3;
+        avg -= numValue[rsSize-1][5];
+
+        numValue[rsSize-1][6] *= 6;
+        avg += numValue[rsSize-1][6];
+
+        numValue[rsSize-1][7] *= 5;
+        avg += numValue[rsSize-1][7];
+
+        numValue[rsSize-1][8] *= 8;
+        avg += numValue[rsSize-1][8];
+
+        numValue[rsSize-1][9] *= 6;
+        avg -= numValue[rsSize-1][9];
+
+        numValue[rsSize-1][10] *= 5;
+        avg += numValue[rsSize-1][10];
+
+        numValue[rsSize-1][11] *= 4;
+        avg -= numValue[rsSize-1][11];
+
+        numValue[rsSize-1][12] *= 3;
+        avg -= numValue[rsSize-1][12];
+
+        numValue[rsSize-1][13] *= 4;
+        avg += numValue[rsSize-1][13];
+
+        numValue[rsSize-1][14] *= 2;
+        avg += numValue[rsSize-1][14];
+
+        numValue[rsSize-1][15] *= 4;
+        avg += numValue[rsSize-1][15];
+
+        numValue[rsSize-1][16] *= 5;
+        avg -= numValue[rsSize-1][16];
+
+        numValue[rsSize-1][17] *= 6;
+        avg -= numValue[rsSize-1][17];
+
+        numValue[rsSize-1][18] *= 4;
+        avg += numValue[rsSize-1][18];
+
+        numValue[rsSize-1][19] *= 7;
+        avg -= numValue[rsSize-1][19];
+
+        numValue[rsSize-1][20] *= 4;
+        avg += numValue[rsSize-1][20];
+
+        numValue[rsSize-1][21] *= 2;
+        avg += numValue[rsSize-1][21];
+
+        numValue[rsSize-1][22] *= 6;
+        avg += numValue[rsSize-1][22];
+
+        numValue[rsSize-1][23] *= 6;
+        avg += numValue[rsSize-1][23];
+
+        numValue[rsSize-1][24] *= 9;
+        avg -= numValue[rsSize-1][24];
+
+        numValue[rsSize-1][25] *= 7;
+        avg += numValue[rsSize-1][25];
+
+        numValue[rsSize-1][26] *= 7;
+        avg += numValue[rsSize-1][26];
+
+        numValue[rsSize-1][27] *= 8;
+        avg += numValue[rsSize-1][27];
+
+        numValue[rsSize-1][28] *= 9;
+        avg += numValue[rsSize-1][28];
+
+//        Averages the entire table for a final score
+        avg = (avg/rsSize)*100;
+
+        return avg;
+    }
     
 
 
 //    Method that converts all answers to integer values
-    public int[][] numValueArray(String[][] results){
+    public double[][] numValueArray(String[][] results){
         for (int i = 0; i < rsSize; i++) {
             
 
