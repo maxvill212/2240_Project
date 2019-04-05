@@ -3,17 +3,62 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="208.0" prefWidth="473.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Questions.Question27.Question27">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="473.0" style="-fx-background-color: #b5ee70; -fx-border-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Questions.Question27.Question27">
    <children>
-      <Label layoutX="10.0" layoutY="30.0" prefHeight="72.0" prefWidth="455.0" text="On average, how many showers do you take per week?" textAlignment="CENTER" wrapText="true">
+      <Label layoutX="10.0" layoutY="17.0" prefHeight="85.0" prefWidth="455.0" style="-fx-background-color: grey; -fx-border-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 3;" text="On average, how many showers do you take per week?" textAlignment="CENTER" textFill="#b5ee70" wrapText="true">
          <font>
-            <Font size="24.0" />
+            <Font name="Century Gothic" size="24.0" />
          </font>
+         <effect>
+            <InnerShadow color="WHITE" />
+         </effect>
       </Label>
-      <Button fx:id="btnSubmit" layoutX="211.0" layoutY="163.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
-      <ChoiceBox fx:id="cBox" layoutX="162.0" layoutY="120.0" prefWidth="150.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="335.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Desktop/animated-duck-clipart-13.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.02" contrast="0.17" saturation="-0.19" />
+         </effect>
+      </ImageView>
+      <Button fx:id="btnSubmit" layoutX="203.0" layoutY="212.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: grey; -fx-background-radius: 20; -fx-border-color: #cfff84; -fx-border-width: 3; -fx-border-radius: 20; -fx-border-image-insets: 3;" text="Submit" textFill="#cceb45">
+         <effect>
+            <InnerShadow color="WHITE" />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="15.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="cBox" layoutX="160.0" layoutY="144.0" prefHeight="35.0" prefWidth="156.0" style="-fx-background-color: white; -fx-border-color: #cceb45; -fx-border-width: 3; -fx-background-radius: 20; -fx-border-radius: 20;">
+         <effect>
+            <InnerShadow color="WHITE" />
+         </effect>
+      </ChoiceBox>
+      <ImageView fitHeight="128.0" fitWidth="248.0" layoutX="253.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Desktop/Water-HD-PNG-File.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.02" contrast="0.38" />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="199.0" fitWidth="176.0" layoutX="14.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../../Desktop/water-next-cc-clipart-9kcYYA.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="0.09" contrast="0.19" hue="0.12" saturation="0.59" />
+         </effect>
+      </ImageView>
    </children>
+   <effect>
+      <InnerShadow color="WHITE" />
+   </effect>
 </AnchorPane>
