@@ -44,6 +44,7 @@ public class Main extends Application {
         Parent welcomeRoot = FXMLLoader.load(getClass().getResource("WelcomeWindow/WelcomeWindow.fxml"));
         welcomeStage.setTitle("Welcome");
         welcomeStage.setScene(new Scene(welcomeRoot));
+        welcomeStage.getIcons();
         welcomeStage.show();
     }
 
