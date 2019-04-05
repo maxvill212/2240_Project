@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="welcomeWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeWindow.WelcomeWindow">
+<BorderPane fx:id="welcomeWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeWindow.WelcomeWindow">
     <top>
         <AnchorPane prefHeight="66.0" prefWidth="600.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
          <children>
@@ -57,49 +57,12 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                        <ImageView fitHeight="70.0" fitWidth="119.0" layoutX="210.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" rotate="106.3">
-                           <image>
-                              <Image url="@../../../../../../../../../../Desktop/grunge-footprint-1.png" />
-                           </image>
-                           <effect>
-                              <ColorAdjust brightness="1.0" contrast="1.0" hue="-0.14" saturation="0.4" />
-                           </effect>
-                        </ImageView>
-                        <ImageView fitHeight="249.0" fitWidth="392.0" layoutX="81.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: 180;">
-                           <image>
-                              <Image url="@../../../../../../../../../../Desktop/csi-sustainable-conference.png" />
-                           </image>
-                        </ImageView>
                                 <TextField fx:id="txtUser2" layoutX="207.0" layoutY="54.0" promptText="Username" />
                                 <TextField fx:id="txtName" layoutX="207.0" layoutY="117.0" promptText="Full Name" />
                                 <TextField fx:id="txtCreatePass" layoutX="207.0" layoutY="183.0" promptText="Password" />
                                 <TextField fx:id="txtCreatePass2" layoutX="207.0" layoutY="250.0" promptText="Retype Password" />
                                 <Label fx:id="lblError2" layoutX="253.0" layoutY="341.0" text="Error Message" textFill="RED" visible="false" />
                                 <Button fx:id="CreateAccount" layoutX="233.0" layoutY="294.0" mnemonicParsing="false" onAction="#CreateAccount" text="Create Account" />
-                        <ImageView fitHeight="70.0" fitWidth="119.0" layoutX="47.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
-                           <image>
-                              <Image url="@../../../../../../../../../../Desktop/grunge-footprint-1.png" />
-                           </image>
-                           <effect>
-                              <ColorAdjust brightness="1.0" contrast="1.0" hue="-0.14" saturation="0.4" />
-                           </effect>
-                        </ImageView>
-                        <ImageView fitHeight="70.0" fitWidth="119.0" layoutX="107.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true" rotate="105.5">
-                           <image>
-                              <Image url="@../../../../../../../../../../Desktop/grunge-footprint-1.png" />
-                           </image>
-                           <effect>
-                              <ColorAdjust brightness="1.0" contrast="1.0" hue="-0.14" saturation="0.4" />
-                           </effect>
-                        </ImageView>
-                        <ImageView fitHeight="150.0" fitWidth="144.0" layoutX="53.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" rotate="-32.2">
-                           <image>
-                              <Image url="@../../../../../../../../../../Desktop/grunge-footprint-2.png" />
-                           </image>
-                           <effect>
-                              <ColorAdjust brightness="1.0" />
-                           </effect>
-                        </ImageView>
                             </children>
                         </AnchorPane>
                     </content>
