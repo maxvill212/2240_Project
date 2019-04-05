@@ -2,7 +2,7 @@
 /*********************************************************************************************************************
  *                                                                                                                   *
  *       ***************ABOUT**********************                                                                  *
- *       This is the class that does all the calculations for the carbon footprint                                   *
+ *       This is the class that does all the calculations for the carbon footprint questionnaire                     *
  *                                                                                                                   *
  *       User answers and passed to the next question                                                                *
  *       The result is saved in the result array and passed to the next question                                     *
@@ -15,6 +15,8 @@
  *       Integer                                                                                                     *
  *          rsSize         -> Stores the length of the table in the pullAll method in Database                       *
  *          avg            -> Stores the average score of others in the database                                     *
+ *          tableAvg       -> The population's average score                                                         *
+ *          userResult     -> User's personal score                                                                  *
  *                                                                                                                   *
  ********************************************************************************************************************/
 //</editor-fold>
@@ -24,22 +26,19 @@
 
 package Classes;
 
-
-import java.text.DecimalFormat;
-
-import static java.lang.StrictMath.round;
-
 public class Calculate {
 
-    int rsSize, getUsrRsIndex = 0, allUsrResults;
+
+//    Variable declaration
+    int rsSize;
     double numValue[][];
     int tableAvg, userResults;
     String results[][];
     Database database = new Database();
 
 
-
-
+//    Since both sendToEndUser and sendToEndTable use this, its in its own method
+//    Once the methods of this method are called the 1st time, it doesn't need to be called again
     public void setUp(){
         rsSize = database.getTableLength();
         results = new String[rsSize][29];
@@ -48,13 +47,13 @@ public class Calculate {
         numValue = convertToInt(results);
     }
 
-
+//    Sends the user's result to the end page
     public int sendToEndUser(){
         userResults = UsrResult(numValue);
         return userResults;
     }
 
-
+//    Sends the popluation average to the end page
     public int sendToEndTable(){
         setUp();
         tableAvg = tableAverage(numValue);
@@ -62,20 +61,10 @@ public class Calculate {
     }
 
 
-    public int userAverage(String username){
-        rsSize = database.accInputs(username);
-        results = new String[rsSize][29];
-        results = database.pullUser(username);
-        numValue = new double[rsSize][29];
-        numValue = convertToInt(results);
-        allUsrResults = tableAverage(numValue);
-        return allUsrResults;
-    }
-
-
-
-
 //    Calculates the user's final result
+//    It takes the last row of the table (user's input)
+//    It takes the numerical value from convertToInt and multiplies them by the
+//    given weight that each question's activity on the environment
     public int UsrResult(double[][] numValue){
 
             numValue[rsSize-1][1] *= 6;
@@ -168,7 +157,11 @@ public class Calculate {
         return userResults;
     }
 
+
+
 //    Calculates the table average
+//    It takes the numerical value from convertToInt and multiplies them by the
+//    given weight that each question's activity on the environment
     public int tableAverage(double[][] numValue){
 
 //        Adds all columns together, finds the average and stores it in at the last row

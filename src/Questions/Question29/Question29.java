@@ -48,7 +48,6 @@ public class Question29 implements Initializable {
     String results[];
     int i;
     Database database = new Database();
-    String username;
     HashAndCheck hashAndCheck = new HashAndCheck();
 
 
