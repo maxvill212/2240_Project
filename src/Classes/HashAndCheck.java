@@ -74,6 +74,19 @@ public class HashAndCheck {
             return true;
         }return false;
     }
+
+//    Check question 29 to makes sure its a integer
+    public boolean checknum29(String input){
+        try
+        {
+            Integer.parseInt(input);
+            return true;
+        }
+        catch( Exception e)
+        {
+            return false;
+        }
+    }
 }
 
 

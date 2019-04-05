@@ -31,8 +31,7 @@ import static java.lang.StrictMath.round;
 
 public class Calculate {
 
-    int rsSize, getUsrRsIndex = 0, i = 1;
-    int allUsrResults[];
+    int rsSize, getUsrRsIndex = 0, allUsrResults;
     double numValue[][];
     int tableAvg, userResults;
     String results[][];
@@ -63,19 +62,13 @@ public class Calculate {
     }
 
 
-    public int[] getUserRs(String username){
+    public int userAverage(String username){
         rsSize = database.accInputs(username);
         results = new String[rsSize][29];
         results = database.pullUser(username);
         numValue = new double[rsSize][29];
-        allUsrResults = new int[rsSize];
         numValue = convertToInt(results);
-
-        for (int i = rsSize; i > 1; i--) {
-            allUsrResults[getUsrRsIndex] = UsrResult(numValue);
-            getUsrRsIndex++;
-        }
-
+        allUsrResults = tableAverage(numValue);
         return allUsrResults;
     }
 
@@ -85,89 +78,89 @@ public class Calculate {
 //    Calculates the user's final result
     public int UsrResult(double[][] numValue){
 
-            numValue[rsSize-i][1] *= 6;
-            userResults += numValue[rsSize-i][1];
+            numValue[rsSize-1][1] *= 6;
+            userResults += numValue[rsSize-1][1];
 
-            numValue[rsSize-i][2] *= 6;
-            userResults += numValue[rsSize-i][2];
+            numValue[rsSize-1][2] *= 6;
+            userResults += numValue[rsSize-1][2];
 
-            numValue[rsSize-i][3] *= 5;
-            userResults += numValue[rsSize-i][3];
+            numValue[rsSize-1][3] *= 5;
+            userResults += numValue[rsSize-1][3];
 
-            numValue[rsSize-i][4] *= 6;
-            userResults += numValue[rsSize-i][4];
+            numValue[rsSize-1][4] *= 6;
+            userResults += numValue[rsSize-1][4];
 
-            numValue[rsSize-i][5] *= 3;
-            userResults -= numValue[rsSize-i][5];
+            numValue[rsSize-1][5] *= 3;
+            userResults -= numValue[rsSize-1][5];
 
-            numValue[rsSize-i][6] *= 6;
-            userResults += numValue[rsSize-i][6];
+            numValue[rsSize-1][6] *= 6;
+            userResults += numValue[rsSize-1][6];
 
-            numValue[rsSize-i][7] *= 5;
-            userResults += numValue[rsSize-i][7];
+            numValue[rsSize-1][7] *= 5;
+            userResults += numValue[rsSize-1][7];
 
-            numValue[rsSize-i][8] *= 8;
-            userResults += numValue[rsSize-i][8];
+            numValue[rsSize-1][8] *= 8;
+            userResults += numValue[rsSize-1][8];
 
-            numValue[rsSize-i][9] *= 6;
-            userResults -= numValue[rsSize-i][9];
+            numValue[rsSize-1][9] *= 6;
+            userResults -= numValue[rsSize-1][9];
 
-            numValue[rsSize-i][10] *= 5;
-            userResults += numValue[rsSize-i][10];
+            numValue[rsSize-1][10] *= 5;
+            userResults += numValue[rsSize-1][10];
 
-            numValue[rsSize-i][11] *= 4;
-            userResults -= numValue[rsSize-i][11];
+            numValue[rsSize-1][11] *= 4;
+            userResults -= numValue[rsSize-1][11];
 
-            numValue[rsSize-i][12] *= 3;
-            userResults -= numValue[rsSize-i][12];
+            numValue[rsSize-1][12] *= 3;
+            userResults -= numValue[rsSize-1][12];
 
-            numValue[rsSize-i][13] *= 4;
-            userResults += numValue[rsSize-i][13];
+            numValue[rsSize-1][13] *= 4;
+            userResults += numValue[rsSize-1][13];
 
-            numValue[rsSize-i][14] *= 2;
-            userResults += numValue[rsSize-i][14];
+            numValue[rsSize-1][14] *= 2;
+            userResults += numValue[rsSize-1][14];
 
-            numValue[rsSize-i][15] *= 4;
-            userResults += numValue[rsSize-i][15];
+            numValue[rsSize-1][15] *= 4;
+            userResults += numValue[rsSize-1][15];
 
-            numValue[rsSize-i][16] *= 5;
-            userResults -= numValue[rsSize-i][16];
+            numValue[rsSize-1][16] *= 5;
+            userResults -= numValue[rsSize-1][16];
 
-            numValue[rsSize-i][17] *= 6;
-            userResults -= numValue[rsSize-i][17];
+            numValue[rsSize-1][17] *= 6;
+            userResults -= numValue[rsSize-1][17];
 
-            numValue[rsSize-i][18] *= 4;
-            userResults += numValue[rsSize-i][18];
+            numValue[rsSize-1][18] *= 4;
+            userResults += numValue[rsSize-1][18];
 
-            numValue[rsSize-i][19] *= 7;
-            userResults -= numValue[rsSize-i][19];
+            numValue[rsSize-1][19] *= 7;
+            userResults -= numValue[rsSize-1][19];
 
-            numValue[rsSize-i][20] *= 4;
-            userResults += numValue[rsSize-i][20];
+            numValue[rsSize-1][20] *= 4;
+            userResults += numValue[rsSize-1][20];
 
-            numValue[rsSize-i][21] *= 2;
-            userResults += numValue[rsSize-i][21];
+            numValue[rsSize-1][21] *= 2;
+            userResults += numValue[rsSize-1][21];
 
-            numValue[rsSize-i][22] *= 6;
-            userResults += numValue[rsSize-i][22];
+            numValue[rsSize-1][22] *= 6;
+            userResults += numValue[rsSize-1][22];
 
-            numValue[rsSize-i][23] *= 6;
-            userResults += numValue[rsSize-i][23];
+            numValue[rsSize-1][23] *= 6;
+            userResults += numValue[rsSize-1][23];
 
-            numValue[rsSize-i][24] *= 9;
-            userResults -= numValue[rsSize-i][24];
+            numValue[rsSize-1][24] *= 9;
+            userResults -= numValue[rsSize-1][24];
 
-            numValue[rsSize-i][25] *= 7;
-            userResults += numValue[rsSize-i][25];
+            numValue[rsSize-1][25] *= 7;
+            userResults += numValue[rsSize-1][25];
 
-            numValue[rsSize-i][26] *= 7;
-            userResults += numValue[rsSize-i][26];
+            numValue[rsSize-1][26] *= 7;
+            userResults += numValue[rsSize-1][26];
 
-            numValue[rsSize-i][27] *= 8;
-            userResults += numValue[rsSize-i][27];
+            numValue[rsSize-1][27] *= 8;
+            userResults += numValue[rsSize-1][27];
 
-            numValue[rsSize-i][28] *= 9;
-            userResults += numValue[rsSize-i][28];
+            numValue[rsSize-1][28] *= 9;
+            userResults += numValue[rsSize-1][28];
 
 //        Averages the user's result for a final score
             userResults = (userResults/rsSize)*10;

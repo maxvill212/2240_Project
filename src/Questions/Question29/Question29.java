@@ -25,6 +25,7 @@
 package Questions.Question29;
 
 import Classes.Database;
+import Classes.HashAndCheck;
 import EndScreen.EndScreen;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,6 +49,7 @@ public class Question29 implements Initializable {
     int i;
     Database database = new Database();
     String username;
+    HashAndCheck hashAndCheck = new HashAndCheck();
 
 
     @FXML
@@ -56,40 +58,46 @@ public class Question29 implements Initializable {
     private Button btnSubmit;
     @FXML
     private ListView list;
+    @FXML
+    private Label lblError;
 
 
     @FXML
     void submit(ActionEvent event) {
 
+        if (hashAndCheck.checknum29(lblAns.getText())) {
+
 //        Gets the answer and stores it in the last position of the array
-        results[i] =  lblAns.getText();
-        database.inputData(results);
+            results[i] = lblAns.getText();
+            database.inputData(results);
 
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(EndScreen.class.getResource("EndScreen.fxml"));
-            Parent endSRoot = fxmlLoader.load();
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(EndScreen.class.getResource("EndScreen.fxml"));
+                Parent endSRoot = fxmlLoader.load();
 
-            Stage endStage = new Stage();
-            endStage.setScene(new Scene(endSRoot));
-            endStage.setTitle("Thank You");
-            endStage.show();
 
-           EndScreen endScreen = fxmlLoader.getController();
-            endScreen.sendToNext(results[0]);
+                Stage endStage = new Stage();
+                endStage.setScene(new Scene(endSRoot));
+                endStage.setTitle("Thank You");
+                endStage.show();
 
-            Stage currStage = (Stage) btnSubmit.getScene().getWindow();
-            currStage.close();
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+
+                Stage currStage = (Stage) btnSubmit.getScene().getWindow();
+                currStage.close();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }else {
+            lblError.setVisible(true);
         }
     }
 
-    public void sendToNext(String[] results, int i){
+    public void sendToNext(String[] results, int i) {
         this.results = results;
         this.i = i;
     }
 
-//    Populates the list view with the examples of daily water usage and the amount in liters
+    //    Populates the list view with the examples of daily water usage and the amount in liters
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         list.getItems().addAll("Toilet Flush:                                     9",
@@ -106,3 +114,4 @@ public class Question29 implements Initializable {
                 "Water for tea/coffee", "drinking");
     }
 }
+
