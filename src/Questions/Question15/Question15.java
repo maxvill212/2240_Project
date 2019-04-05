@@ -47,7 +47,7 @@ public class Question15 implements Initializable {
 
     String results[];
     int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0", "2", "3", "4", "5+");
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("1", "2", "3", "4", "5+");
 
     @FXML
     private Button btnSubmit;
@@ -89,6 +89,6 @@ public class Question15 implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cBox.setItems(choiceBoxList);
-        cBox.setValue("0");
+        cBox.setValue("1");
     }
 }

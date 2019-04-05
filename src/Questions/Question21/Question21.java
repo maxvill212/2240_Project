@@ -46,7 +46,7 @@ public class Question21 implements Initializable {
 
     String results[];
     int i;
-    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0-20", "21-50", "51-90", "91-150", "151-200", "200+");
+    ObservableList<String> choiceBoxList = FXCollections.observableArrayList("0-20", "21-50", "51-90", "91-150", "151-200", "201+");
 
     @FXML
     private Button btnSubmit;
