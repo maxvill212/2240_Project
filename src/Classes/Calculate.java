@@ -27,11 +27,13 @@ package Classes;
 
 import java.text.DecimalFormat;
 
+import static java.lang.StrictMath.round;
+
 public class Calculate {
 
     int rsSize;
     double numValue[][];
-    double tableAvg, userResults;
+    int tableAvg, userResults;
     String results[][];
     Database database = new Database();
     private static DecimalFormat df2 = new DecimalFormat(".##");
@@ -46,22 +48,20 @@ public class Calculate {
         numValue = convertToInt(results);
     }
 
-    public double sendToEndUser(){
+    public int sendToEndUser(){
         userResults = UsrResult(numValue);
-        String.format("%.2f", userResults);
         return userResults;
     }
 
-    public double sendToEndTable(){
+    public int sendToEndTable(){
         setUp();
         tableAvg = tableAverage(numValue);
-        String.format("%.2f", tableAvg);
         return tableAvg;
     }
 
 
 //    Calculates the user's final result
-    public double UsrResult(double[][] numValue){
+    public int UsrResult(double[][] numValue){
 
             numValue[rsSize-1][1] *= 6;
             userResults += numValue[rsSize-1][1];
@@ -149,11 +149,12 @@ public class Calculate {
 
 //        Averages the user's result for a final score
             userResults = (userResults/rsSize)*10;
+
         return userResults;
     }
 
 //    Calculates the table average
-    public double tableAverage(double[][] numValue){
+    public int tableAverage(double[][] numValue){
 
 //        Adds all columns together, finds the average and stores it in at the last row
         for (int i = 1; i < 29; i++) {
