@@ -2,8 +2,10 @@ package EndScreen;
 
 import Classes.Calculate;
 import Classes.Database;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -16,18 +18,25 @@ public class EndScreen implements Initializable {
     private Label lblTableAvg;
     @FXML
     private Label lblUserScore;
+    @FXML
+    private Button btnSubmit;
 
-    int rsSize;
-    double numValue[][];
-    double avg, userResults;
-    String results[][];
     Calculate calculate = new Calculate();
-    Database database = new Database();
+    double tableAvg;
+    double userResults;
 
+    @FXML
+    void submit(ActionEvent event){
 
+        tableAvg = calculate.sendToEndTable();
+        userResults = calculate.sendToEndUser();
 
+        lblTableAvg.setText(Double.toString(tableAvg));
+        lblUserScore.setText(Double.toString(userResults));
 
-
+//        lblTableAvg.setText(Double.toString(tableAvg));
+//        lblUserScore.setText(Double.toString(userResults));
+    }
 
 
 
@@ -40,11 +49,11 @@ public class EndScreen implements Initializable {
     //    No data is preloaded onto the scene
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        rsSize = database.getTableLength();
-        lblTableAvg.setText(Double.toString(calculate.avgCalc(numValue)));
-        lblUserScore.setText(Double.toString(calculate.UsrResult(numValue)));
-        calculate.pull();
+//        Calculate calculate = new Calculate();
+//        double tableAvg = calculate.sendToEndTable();
+//        double userResults = calculate.sendToEndUser();
+//        lblTableAvg.setText(Double.toString(tableAvg));
+//        lblUserScore.setText(Double.toString(userResults));
     }
 }
 
