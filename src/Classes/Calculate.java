@@ -48,14 +48,14 @@ public class Calculate {
         return results;
     }
     
-    public double avgCalc(int[][] numValue){
-
-        for (int i = 0; i < ; i++) {
-            
-        }
-        
-        return avg;
-    }
+//    public double avgCalc(int[][] numValue){
+//
+//        for (int i = 0; i < ; i++) {
+//
+//        }
+//
+//        return avg;
+//    }
     
 
 
