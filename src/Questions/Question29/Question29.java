@@ -9,9 +9,10 @@
  *                                                                                                                   *
  *       **********VARIABLES Question 29************                                                                 *
  *       String                                                                                                      *
- *          result[]             -> Array that stores the user's name and all the answers                            *
+ *          result[]      -> Array that stores the user's name and all the answers                                   *
+ *          username      -> Sends username to end page to let the user see their previous entries                   *
  *       Integer                                                                                                     *
- *          i                    -> A count that tracks where to place the user's input in the array                 *
+ *          i             -> A count that tracks where to place the user's input in the array                        *
  *       Database                                                                                                    *
  *          database      -> The object that allows this page to send the results to the database                    *
  *                                                                                                                   *
@@ -46,6 +47,7 @@ public class Question29 implements Initializable {
     String results[];
     int i;
     Database database = new Database();
+    String username;
 
 
     @FXML
@@ -71,6 +73,9 @@ public class Question29 implements Initializable {
             endStage.setScene(new Scene(endSRoot));
             endStage.setTitle("Thank You");
             endStage.show();
+
+           EndScreen endScreen = fxmlLoader.getController();
+            endScreen.sendToNext(results[0]);
 
             Stage currStage = (Stage) btnSubmit.getScene().getWindow();
             currStage.close();

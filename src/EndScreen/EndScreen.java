@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
+import javax.xml.crypto.Data;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ResourceBundle;
@@ -34,7 +35,12 @@ public class EndScreen implements Initializable {
 
 
     Calculate calculate = new Calculate();
-    String tableAvg, userResults;
+    Database database = new Database();
+    String tableAvg, userResults, username;
+
+
+
+
 
 
     @FXML
@@ -56,6 +62,14 @@ public class EndScreen implements Initializable {
         lblTableAvg.setVisible(false);
         lblText1.setVisible(false);
         lblText2.setVisible(false);
+        calculate.getUserRs(username);
+
+
+    }
+
+
+    public void sendToNext(String username){
+        this.username = username;
     }
 
 
@@ -63,7 +77,7 @@ public class EndScreen implements Initializable {
 
 
 
-    //    No data is preloaded onto the scene
+//    No data is preloaded onto the scene
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
