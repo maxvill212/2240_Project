@@ -179,7 +179,7 @@ public class Database {
                 "question17, question18, question19, question20, question21, question22, question23, question24," +
                 "question25, question26, question27, question28, question29 FROM Answers";
 
-//        Connection to teh database and execution of the query
+//        Connection to the database and execution of the query
         try(Connection conn = this.connect()){
             pstmt = conn.prepareStatement(insert);
             result = pstmt.executeQuery();

@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 public class EndScreen implements Initializable {
@@ -22,20 +23,19 @@ public class EndScreen implements Initializable {
     private Button btnSubmit;
 
     Calculate calculate = new Calculate();
-    double tableAvg;
-    double userResults;
+    String tableAvg, userResults;
+
 
     @FXML
     void submit(ActionEvent event){
 
-        tableAvg = calculate.sendToEndTable();
-        userResults = calculate.sendToEndUser();
+        tableAvg = Double.toString(calculate.sendToEndTable());
 
-        lblTableAvg.setText(Double.toString(tableAvg));
-        lblUserScore.setText(Double.toString(userResults));
+        userResults = Double.toString(calculate.sendToEndUser());
 
-//        lblTableAvg.setText(Double.toString(tableAvg));
-//        lblUserScore.setText(Double.toString(userResults));
+        lblTableAvg.setText(tableAvg);
+        lblUserScore.setText(userResults);
+
     }
 
 
@@ -49,11 +49,6 @@ public class EndScreen implements Initializable {
     //    No data is preloaded onto the scene
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        Calculate calculate = new Calculate();
-//        double tableAvg = calculate.sendToEndTable();
-//        double userResults = calculate.sendToEndUser();
-//        lblTableAvg.setText(Double.toString(tableAvg));
-//        lblUserScore.setText(Double.toString(userResults));
     }
 }
 

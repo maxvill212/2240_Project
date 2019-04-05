@@ -25,6 +25,8 @@
 package Classes;
 
 
+import java.text.DecimalFormat;
+
 public class Calculate {
 
     int rsSize;
@@ -32,28 +34,28 @@ public class Calculate {
     double tableAvg, userResults;
     String results[][];
     Database database = new Database();
-    int flag;
+    private static DecimalFormat df2 = new DecimalFormat(".##");
 
 
-    public void setUp(int flag){
+
+    public void setUp(){
         rsSize = database.getTableLength();
         results = new String[rsSize][29];
+        results = database.pullAll();
         numValue = new double[rsSize][29];
-        if (flag == 1)
-            results = database.pullAll();
+        numValue = convertToInt(results);
     }
 
     public double sendToEndUser(){
-        flag = 1;
-        setUp(flag);
         userResults = UsrResult(numValue);
+        String.format("%.2f", userResults);
         return userResults;
     }
 
     public double sendToEndTable(){
-        flag = 0;
-        setUp(flag);
+        setUp();
         tableAvg = tableAverage(numValue);
+        String.format("%.2f", tableAvg);
         return tableAvg;
     }
 
@@ -146,7 +148,7 @@ public class Calculate {
             userResults += numValue[rsSize-1][28];
 
 //        Averages the user's result for a final score
-            userResults = (userResults/rsSize)*100;
+            userResults = (userResults/rsSize)*10;
         return userResults;
     }
 
