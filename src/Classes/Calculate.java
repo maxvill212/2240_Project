@@ -152,7 +152,7 @@ public class Calculate {
             userResults += numValue[rsSize-1][28];
 
 //        Averages the user's result for a final score
-            userResults = (userResults/rsSize)*10;
+            userResults = (userResults/rsSize);
 
         return userResults;
     }
@@ -255,7 +255,7 @@ public class Calculate {
         tableAvg += numValue[rsSize-1][28];
 
 //        Averages the entire table for a final score
-        tableAvg = (tableAvg/rsSize)*100;
+        tableAvg = (tableAvg/rsSize)*10;
 
         return tableAvg;
     }
