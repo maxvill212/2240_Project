@@ -2,40 +2,120 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EndScreen.EndScreen">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EndScreen.EndScreen">
    <top>
-      <AnchorPane prefHeight="74.0" prefWidth="600.0" style="-fx-background-color: #c2eb77; -fx-border-color: #3c3c3c; -fx-border-width: 3; -fx-border-radius: 10; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="102.0" prefWidth="600.0" style="-fx-background-color: #cfff84; -fx-border-color: white; -fx-border-width: 3; -fx-border-radius: 10; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane layoutX="8.0" layoutY="10.0" prefHeight="57.0" prefWidth="583.0" style="-fx-background-color: #3c3c3c; -fx-border-color: white; -fx-border-width: 3; -fx-background-radius: 18; -fx-border-radius: 18;" />
-            <Text fill="WHITE" layoutX="58.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you for completing the quiz" wrappingWidth="483.3984375">
+            <Label alignment="CENTER" layoutX="71.0" layoutY="12.0" prefHeight="78.0" prefWidth="606.0" style="-fx-background-color: grey; -fx-border-width: 5; -fx-border-color: white; -fx-background-radius: 20; -fx-border-radius: 20;" text="Thank you for completing the quiz!" textAlignment="CENTER" textFill="#cfff84" wrapText="true">
                <font>
-                  <Font size="31.0" />
+                  <Font name="Century Gothic" size="24.0" />
                </font>
-            </Text>
-            <Label layoutX="56.0" layoutY="16.0" prefHeight="47.0" prefWidth="497.0" text="Thank you for completing the quiz" textFill="#a2da33">
-               <font>
-                  <Font size="31.0" />
-               </font>
+               <effect>
+                  <InnerShadow color="WHITE" radius="12.225" width="29.9" />
+               </effect>
             </Label>
+            <ImageView fitHeight="109.0" fitWidth="71.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/green-leaf-md.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="109.0" fitWidth="71.0" layoutX="677.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/green-leaf-md.png" />
+               </image>
+            </ImageView>
          </children>
+         <effect>
+            <InnerShadow color="WHITE" />
+         </effect>
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="327.0" prefWidth="600.0" style="-fx-background-color: #a2da33; -fx-border-color: #3c3c3c; -fx-border-width: 3; -fx-border-radius: 10;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="398.0" prefWidth="669.0" style="-fx-background-color: #cfff84; -fx-border-color: white; -fx-border-width: 5; -fx-border-radius: 20; -fx-background-radius: 20;" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2eb77" height="279.0" layoutX="21.0" layoutY="24.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="559.0" />
-            <Label fx:id="lblTableAvg" contentDisplay="CENTER" layoutX="256.0" layoutY="116.0" prefHeight="21.0" prefWidth="102.0" text="Table Average" />
-            <Label fx:id="lblUserScore" contentDisplay="CENTER" layoutX="265.0" layoutY="208.0" text="User Score" />
-            <Label fx:id="lblText1" layoutX="246.0" layoutY="85.0" text="The table Average:" />
-            <Label fx:id="lblText2" layoutX="263.0" layoutY="187.0" text="User's Result:" />
-            <Button fx:id="btnExit" layoutX="262.0" layoutY="257.0" mnemonicParsing="false" onAction="#exit" prefHeight="31.0" prefWidth="90.0" text="Exit" />
+            <Label fx:id="lblTableAvg" contentDisplay="CENTER" layoutX="379.0" layoutY="136.0" prefHeight="21.0" prefWidth="121.0" text="Table Average" textFill="#5b5959">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font></Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2eb77" height="351.0" layoutX="28.0" layoutY="24.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="687.0" />
+            <ImageView fitHeight="218.0" fitWidth="229.0" layoutX="516.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/2-2-environment-png-image-thumb.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblUserScore" contentDisplay="CENTER" layoutX="390.0" layoutY="224.0" prefHeight="19.0" prefWidth="90.0" text="User Score:" textFill="#5b5959">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font></Label>
+            <Label fx:id="lblText1" layoutX="363.0" layoutY="106.0" prefHeight="19.0" prefWidth="153.0" text="The table Average:" textFill="#5b5959">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font></Label>
+            <Label fx:id="lblText2" layoutX="380.0" layoutY="193.0" prefHeight="19.0" prefWidth="110.0" text="User's Result:" textFill="#5b5959">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font></Label>
             <Label layoutX="74.0" layoutY="95.0" />
-         </children></AnchorPane>
+            <Button fx:id="btnExit" layoutX="396.0" layoutY="271.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: grey; -fx-background-radius: 20; -fx-border-color: #cfff84; -fx-border-width: 3; -fx-border-radius: 20; -fx-border-image-insets: 3;" text="Exit" textFill="#cceb45">
+               <effect>
+                  <InnerShadow color="WHITE" />
+               </effect>
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="104.0" fitWidth="68.0" layoutX="51.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="-174.8">
+               <image>
+                  <Image url="@../img/wine-leaf-clipart-2.jpg" />
+               </image>
+               <effect>
+                  <ColorAdjust contrast="0.13" />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="109.0" fitWidth="71.0" layoutX="49.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true" rotate="-162.8">
+               <image>
+                  <Image url="@../img/wine-leaf-clipart-2.jpg" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="0.2" hue="-0.15" saturation="0.27" />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="106.0" fitWidth="71.0" layoutX="49.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" rotate="-158.7">
+               <image>
+                  <Image url="@../img/wine-leaf-clipart-2.jpg" />
+               </image>
+               <effect>
+                  <ColorAdjust contrast="0.02" hue="-0.55" saturation="0.32" />
+               </effect>
+            </ImageView>
+            <Text layoutX="135.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Green (0-250) : This means Your FootPrint Makes Less impact on the Enviorment then The average! Keep up the good work and always keep the planet in mind  " wrappingWidth="168.6083984375">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Text>
+            <Text layoutX="138.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yellow (250-350) : This means Your Footprint is consistent with the average person in you country. However this may not be a good thing. Try to find ways in your house to reduce your impact by going to environment sites provided by your government to find out more" wrappingWidth="163.0">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Text>
+            <Text layoutX="135.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Red (350+) : This means Your Footprint is severely impacting the environment and is above the average score of you’re  country. Don’t worry, you can fix this! Few examples are recycling waste, turning off lights that aren’t in use, and reducing water usage. To find out more ways, visit environmental sites provided by your government and other reliable sources." wrappingWidth="206.0">
+               <font>
+                  <Font name="Century Gothic" size="10.0" />
+               </font>
+            </Text>
+         </children>
+         <effect>
+            <InnerShadow color="WHITE" />
+         </effect></AnchorPane>
    </center>
 </BorderPane>

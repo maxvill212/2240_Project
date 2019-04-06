@@ -152,7 +152,7 @@ public class Calculate {
             userResults += numValue[rsSize-1][28];
 
 //        Averages the user's result for a final score
-            userResults = (userResults/rsSize);
+            userResults = (userResults/28)*10;
 
         return userResults;
     }
