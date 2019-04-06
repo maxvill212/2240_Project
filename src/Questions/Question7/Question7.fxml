@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="544.0" style="-fx-background-color: #ceff7f; -fx-border-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Questions.Question7.Question7">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="544.0" style="-fx-background-color: #ceff7f; -fx-border-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Questions.Question7.Question7">
    <children>
       <Label alignment="CENTER" layoutX="32.0" layoutY="26.0" prefHeight="104.0" prefWidth="480.0" style="-fx-background-color: grey; -fx-border-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 3;" text="How would you best discribe your diet?" textAlignment="CENTER" textFill="#ceff7f" wrapText="true">
          <font>
@@ -22,7 +22,7 @@
             <Font name="Century Gothic" size="14.0" />
          </font>
       </Button>
-      <ChoiceBox fx:id="cBox" layoutX="197.0" layoutY="173.0" prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: #ceff7f; -fx-background-radius: 20; -fx-border-radius: 20;">
+      <ChoiceBox fx:id="cBox" layoutX="174.0" layoutY="174.0" prefHeight="33.0" prefWidth="197.0" style="-fx-background-color: white; -fx-border-color: #ceff7f; -fx-background-radius: 20; -fx-border-radius: 20;">
          <effect>
             <InnerShadow color="WHITE" />
          </effect>

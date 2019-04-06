@@ -190,25 +190,10 @@ public class WelcomeWindow implements Initializable {
 //                 Calls the method in Database to check if the password is correct
                 if (database.checkPassword(user, password)) {
 
-//                    If The login button is pressed, it brings up the first question
-//                    if (btnLogin.isPressed()) {
-
 //                        Adds username as the first element of the array and prepares the first answer
 //                        to be added to the second position
                         results[i] = user;
                         i++;
-                        Question1 question1 = fxmlLoader.getController();
-                        question1.sendToNext(results, i);
-
-                        Stage questionStage = new Stage();
-                        questionStage.setScene(new Scene(question1Root));
-                        questionStage.setTitle("Question 1");
-                        questionStage.getIcons().addAll(new Image("\\src\\img\\reduce-your-carbon-footprint.png"));
-                        questionStage.show();
-
-//                    Closing the stage
-                        Stage currStage = (Stage) btnLogin.getScene().getWindow();
-                        currStage.close();
 
                         try {
 //                            Creates the Stage, Root and Scene for the first question
@@ -222,7 +207,6 @@ public class WelcomeWindow implements Initializable {
 //                            Loads the first question and sends it the array and index indicator
                             Question1 question1 = fxmlLoader.getController();
                             question1.sendToNext(results, i);
-                            Calculate calculate = new Calculate();
 
 //                            Closes the current stage
                             Stage currStage = (Stage) btnLogin.getScene().getWindow();
