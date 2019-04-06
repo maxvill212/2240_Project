@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EndScreen.EndScreen">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EndScreen.EndScreen">
    <top>
       <AnchorPane prefHeight="102.0" prefWidth="600.0" style="-fx-background-color: #cfff84; -fx-border-color: white; -fx-border-width: 3; -fx-border-radius: 10; -fx-background-radius: 10;" BorderPane.alignment="CENTER">
          <children>
@@ -43,10 +43,6 @@
    <center>
       <AnchorPane prefHeight="398.0" prefWidth="669.0" style="-fx-background-color: #cfff84; -fx-border-color: white; -fx-border-width: 5; -fx-border-radius: 20; -fx-background-radius: 20;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblTableAvg" contentDisplay="CENTER" layoutX="379.0" layoutY="136.0" prefHeight="21.0" prefWidth="121.0" text="Table Average" textFill="#5b5959">
-               <font>
-                  <Font name="Century Gothic" size="15.0" />
-               </font></Label>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c2eb77" height="351.0" layoutX="28.0" layoutY="24.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" width="687.0" />
             <ImageView fitHeight="218.0" fitWidth="229.0" layoutX="516.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -65,8 +61,7 @@
                <font>
                   <Font name="Century Gothic" size="15.0" />
                </font></Label>
-            <Label layoutX="74.0" layoutY="95.0" />
-            <Button fx:id="btnExit" layoutX="396.0" layoutY="271.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: grey; -fx-background-radius: 20; -fx-border-color: #cfff84; -fx-border-width: 3; -fx-border-radius: 20; -fx-border-image-insets: 3;" text="Exit" textFill="#cceb45">
+            <Button fx:id="btnExit" layoutX="396.0" layoutY="271.0" mnemonicParsing="false" onAction="#exit" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: grey; -fx-background-radius: 20; -fx-border-color: #cfff84; -fx-border-width: 3; -fx-border-radius: 20; -fx-border-image-insets: 3;" text="Exit" textFill="#cceb45">
                <effect>
                   <InnerShadow color="WHITE" />
                </effect>
@@ -113,6 +108,11 @@
                   <Font name="Century Gothic" size="10.0" />
                </font>
             </Text>
+            <Label layoutX="309.0" layoutY="136.0" prefHeight="21.0" prefWidth="119.0" />
+            <Label fx:id="lblTableAvg" contentDisplay="CENTER" layoutX="368.0" layoutY="136.0" prefHeight="21.0" prefWidth="121.0" text="Table Average" textFill="#5b5959">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font></Label>
          </children>
          <effect>
             <InnerShadow color="WHITE" />

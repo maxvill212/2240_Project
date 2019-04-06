@@ -9,12 +9,15 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="welcomeWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeWindow.WelcomeWindow">
+<BorderPane fx:id="welcomeWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeWindow.WelcomeWindow">
     <top>
         <AnchorPane prefHeight="66.0" prefWidth="600.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
          <children>
@@ -33,10 +36,27 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #cfff84;">
                             <children>
+                        <ImageView fitHeight="249.0" fitWidth="471.0" layoutX="48.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/635835384834200000.png" />
+                           </image>
+                        </ImageView>
                                 <TextField fx:id="txtUsername" layoutX="207.0" layoutY="174.0" promptText="Username" />
                         <PasswordField fx:id="txtPass" layoutX="207.0" layoutY="218.0" promptText="Password" />
-                                <Button fx:id="btnLogin" layoutX="272.0" layoutY="262.0" mnemonicParsing="false" onAction="#login" text="Login" />
                                 <Label fx:id="lblError" alignment="CENTER" contentDisplay="CENTER" layoutX="196.0" layoutY="314.0" text="Username or Password Incorect" textAlignment="CENTER" textFill="RED" visible="false" />
+                        <Button fx:id="btnLogin" layoutX="239.0" layoutY="279.0" mnemonicParsing="false" onAction="#login" prefHeight="46.0" prefWidth="122.0" style="-fx-background-color: grey; -fx-background-radius: 20; -fx-border-color: #cfff84; -fx-border-width: 3; -fx-border-radius: 20; -fx-border-image-insets: 3;" text="Login" textFill="#cceb45">
+                           <effect>
+                              <InnerShadow color="WHITE" />
+                           </effect>
+                           <font>
+                              <Font name="Century Gothic" size="15.0" />
+                           </font>
+                        </Button>
+                        <Text fill="#6b6b6b" layoutX="228.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!">
+                           <font>
+                              <Font name="Century Gothic" size="29.0" />
+                           </font>
+                        </Text>
                             </children>
                         </AnchorPane>
                     </content>
@@ -49,8 +69,25 @@
                                 <TextField fx:id="txtName" layoutX="207.0" layoutY="132.0" promptText="Full Name" />
                         <PasswordField fx:id="txtCreatePass" layoutX="207.0" layoutY="190.0" promptText="Password" />
                         <PasswordField fx:id="txtCreatePass2" layoutX="207.0" layoutY="240.0" promptText="Retype Password" />
-                                <Button fx:id="CreateAccount" layoutX="233.0" layoutY="294.0" mnemonicParsing="false" onAction="#CreateAccount" text="Create Account" />
                                 <Label fx:id="lblError2" alignment="CENTER" layoutX="247.0" layoutY="333.0" text="Error Message" textFill="RED" visible="false" />
+                        <Button fx:id="CreateAccount" layoutX="200.0" layoutY="291.0" mnemonicParsing="false" onAction="#CreateAccount" prefHeight="53.0" prefWidth="190.0" style="-fx-background-color: grey; -fx-background-radius: 20; -fx-border-color: #cfff84; -fx-border-width: 3; -fx-border-radius: 20; -fx-border-image-insets: 3;" text="Create Account" textFill="#cceb45">
+                           <effect>
+                              <InnerShadow color="WHITE" />
+                           </effect>
+                           <font>
+                              <Font name="Century Gothic" size="15.0" />
+                           </font>
+                        </Button>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="195.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/reduce-your-carbon-footprint.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="270.0" fitWidth="185.0" layoutX="396.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/energy-clipart-environmental-sustainability-11.png" />
+                           </image>
+                        </ImageView>
                             </children>
                         </AnchorPane>
                     </content>
