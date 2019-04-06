@@ -197,6 +197,18 @@ public class WelcomeWindow implements Initializable {
 //                        to be added to the second position
                         results[i] = user;
                         i++;
+                        Question1 question1 = fxmlLoader.getController();
+                        question1.sendToNext(results, i);
+
+                        Stage questionStage = new Stage();
+                        questionStage.setScene(new Scene(question1Root));
+                        questionStage.setTitle("Question 1");
+                        questionStage.getIcons().addAll(new Image("\\src\\img\\reduce-your-carbon-footprint.png"));
+                        questionStage.show();
+
+//                    Closing the stage
+                        Stage currStage = (Stage) btnLogin.getScene().getWindow();
+                        currStage.close();
 
                         try {
 //                            Creates the Stage, Root and Scene for the first question

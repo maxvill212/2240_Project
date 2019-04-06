@@ -4,18 +4,11 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="473.0" style="-fx-background-color: #cfff84; -fx-background-radius: 20; -fx-border-color: white; -fx-background-radius: 20; -fx-border-width: 3; -fx-border-radius: 20; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Questions.Question22.Question22">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="473.0" style="-fx-background-color: #cfff84; -fx-background-radius: 20; -fx-border-color: white; -fx-background-radius: 20; -fx-border-width: 3; -fx-border-radius: 20; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Questions.Question22.Question22">
    <children>
-      <ImageView fitHeight="253.0" fitWidth="466.0" layoutX="4.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-image-radius: 20;">
-         <image>
-            <Image url="@../../../../../../../../../../../Desktop/clipart-frame-plant-12.png" />
-         </image>
-      </ImageView>
       <Label layoutX="25.0" layoutY="14.0" prefHeight="100.0" prefWidth="424.0" style="-fx-background-color: #deffaa; -fx-background-radius: 20; -fx-background-color: grey; -fx-border-color: white; -fx-border-width: 3; -fx-border-radius: 20;" text="In a typical month, how much do you spend on your pets and pet food?" textAlignment="CENTER" textFill="#bdf293" wrapText="true">
          <font>
             <Font name="Century Gothic" size="21.0" />
@@ -29,11 +22,6 @@
             <Font name="Century Gothic" size="15.0" />
          </font></Button>
       <ChoiceBox fx:id="cBox" layoutX="162.0" layoutY="156.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #cfff84; -fx-background-color: white; -fx-border-width: 3;" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="4.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../../../../Desktop/original.png" />
-         </image>
-      </ImageView>
    </children>
    <effect>
       <InnerShadow color="#fffefe" />

@@ -3,17 +3,42 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="208.0" prefWidth="473.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Questions.Question1.Question1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="473.0" style="-fx-background-color: #cfff84; -fx-border-radius: 20; -fx-border-color: white; -fx-border-width: 5; -fx-background-radius: 20;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Questions.Question1.Question1">
    <children>
-      <Label layoutX="134.0" layoutY="49.0" prefHeight="35.0" prefWidth="205.0" text="Where do you live?">
+      <ImageView fitHeight="310.0" fitWidth="313.0" layoutX="86.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/Green-Globe.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="54.0" prefHeight="60.0" prefWidth="298.0" style="-fx-background-color: grey; -fx-border-color: white; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 3;" text="Where do you live?" textFill="#cfff84">
          <font>
-            <Font size="24.0" />
+            <Font name="Century Gothic" size="24.0" />
          </font>
+         <effect>
+            <InnerShadow color="WHITE" />
+         </effect>
       </Label>
-      <Button fx:id="btnSubmit" layoutX="211.0" layoutY="163.0" mnemonicParsing="false" onAction="#submit" text="Submit" />
-      <ChoiceBox fx:id="cBox" layoutX="162.0" layoutY="104.0" prefWidth="150.0" />
+      <Button fx:id="btnSubmit1" layoutX="192.0" layoutY="219.0" mnemonicParsing="false" onAction="#submit" prefHeight="32.0" prefWidth="80.0" style="-fx-background-color: grey; -fx-border-color: #cfff84; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;" text="Submit" textFill="#d4ff78">
+         <effect>
+            <InnerShadow color="#ffffff00" />
+         </effect>
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="cBox1" layoutX="157.0" layoutY="149.0" prefWidth="150.0" style="-fx-background-color: white; -fx-background-radius: 20; -fx-border-color: #cfff84; -fx-border-radius: 20; -fx-border-width: 3;">
+         <effect>
+            <InnerShadow color="WHITE" />
+         </effect>
+      </ChoiceBox>
    </children>
+   <effect>
+      <InnerShadow color="#fffbfb" />
+   </effect>
 </AnchorPane>
