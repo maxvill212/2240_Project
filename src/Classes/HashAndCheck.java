@@ -79,7 +79,7 @@ public class HashAndCheck {
     public boolean checknum29(String input){
         try
         {
-            Integer.parseInt(input);
+            Double.parseDouble(input);
             return true;
         }
         catch( Exception e)

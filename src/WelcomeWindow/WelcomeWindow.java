@@ -161,7 +161,7 @@ public class WelcomeWindow implements Initializable {
                 lblError2.setVisible(true);
             }
         }else{
-            lblError2.setText("Invalid name (for a '-' use '_')");
+            lblError2.setText("Invalid name");
             lblError2.setVisible(true);
         }
     }
