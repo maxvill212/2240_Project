@@ -109,7 +109,7 @@
                </font>
             </Text>
             <Label layoutX="309.0" layoutY="136.0" prefHeight="21.0" prefWidth="119.0" />
-            <Label fx:id="lblTableAvg" contentDisplay="CENTER" layoutX="379.0" layoutY="136.0" prefHeight="21.0" prefWidth="121.0" text="Table Average" textFill="#5b5959">
+            <Label fx:id="lblTableAvg" contentDisplay="CENTER" layoutX="368.0" layoutY="136.0" prefHeight="21.0" prefWidth="121.0" text="Table Average" textFill="#5b5959">
                <font>
                   <Font name="Century Gothic" size="15.0" />
                </font></Label>

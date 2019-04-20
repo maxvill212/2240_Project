@@ -215,24 +215,6 @@ public class WelcomeWindow implements Initializable {
                             System.out.println(e.getMessage());
                         }
 
-//                    If the check previous results button is pressed, it brings the results page
-//                    }else{
-//                        try {
-//                            FXMLLoader fxmlLoader = new FXMLLoader(EndScreen.class.getResource("EndScreen.fxml"));
-//                            Parent endSRoot = fxmlLoader.load();
-//
-//                            Stage endStage = new Stage();
-//                            endStage.setScene(new Scene(endSRoot));
-//                            endStage.setTitle("Thank You");
-//                            endStage.show();
-//
-////                            Closing the stage
-//                            Stage currStage = (Stage) btnPrevResults.getScene().getWindow();
-//                            currStage.close();
-//                        } catch (Exception e) {
-//                            System.out.println(e.getMessage());
-//                        }
-//                    }
                 }else{
                     lblError.setText("Username or Password Incorrect");
                     lblError.setVisible(true);
